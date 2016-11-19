@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*
 
 Multitarget assembler (C) 2013 Martin Maly, http://www.maly.cz, http://www.webscript.cz
