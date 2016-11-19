@@ -10,6 +10,9 @@
     "type": "git",
     "url": "https://github.com/maly/asm80-node.git"
   },
+  "bin": {
+    "asm80": "./asm80.js"
+  }, 
   "keywords": [
     "Assembler",
     "Z80",
@@ -20,6 +23,10 @@
     "1802"
   ],
   "author": "Martin Maly <martin.maly@bigclown.com> (http://bigclown.com)",
+  "engines": {
+    "node": ">=5.10",
+    "npm": "1"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/maly/asm80-node/issues"
