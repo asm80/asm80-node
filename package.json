@@ -1,0 +1,31 @@
+{
+  "name": "asm80",
+  "version": "0.9.0",
+  "description": "ASM80 stand-alone assembler",
+  "main": "asm80.js",
+  "scripts": {
+    "test": "node asm80.js --help"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maly/asm80-node.git"
+  },
+  "keywords": [
+    "Assembler",
+    "Z80",
+    "8080",
+    "6502",
+    "6809",
+    "6800",
+    "1802"
+  ],
+  "author": "Martin Maly <martin.maly@bigclown.com> (http://bigclown.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maly/asm80-node/issues"
+  },
+  "homepage": "https://github.com/maly/asm80-node#readme",
+  "devDependencies": {
+    "commander": "^2.9.0"
+  }
+}

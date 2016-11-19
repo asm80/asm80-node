@@ -1,0 +1,4 @@
+build.bat
+node_modules
+*.min.js
+asm-*.js
