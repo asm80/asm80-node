@@ -4,7 +4,8 @@
   "description": "ASM80 stand-alone assembler",
   "main": "asm80.js",
   "scripts": {
-    "test": "node asm80.js --help"
+    "test": "node asm80.js --help",
+    "patch-release": "npm version patch && npm publish && git push --follow-tags"
   },
   "repository": {
     "type": "git",
