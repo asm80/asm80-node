@@ -36,7 +36,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 */
 
 /* eslint-disable no-console */
-/*global process __dirname*/
+/*global process*/
 
 var __cwd = process.cwd();
 
@@ -104,7 +104,7 @@ ASM.fileGet(function(fn){
   var nfn = path.resolve(root,fn);
   //console.log("Include", path.resolve(root,fn));
   return LFS.load(nfn);
-})
+});
 
 switch (asmtype) {
   case 'I8080':	vxx = ASM.compile(data, Monolith.I8080); break;

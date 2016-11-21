@@ -38,3 +38,7 @@
   See https://www.uelectronics.info/category/my-projects/ for more info
 
   or http://www.asm80.com for online IDE, based on this assembler
+
+## Changes
+
+  - 0.9.9: First working version
