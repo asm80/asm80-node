@@ -17,13 +17,13 @@
 
   Options are:
 
-  `-o, --output <file>` Output file name
-  `-t, --type <type>` Output type [default: hex]
-  `-n, --nolist` Suppress listing (.lst file)
-  `-m, --machine <type>` Processor type, one of the following: Z80, I8080, C6502, C65816, CDP1802, M6800, M6809
-  `-h, --help` See HELP
+  - `-o, --output <file>` Output file name
+  - `-t, --type <type>` Output type [default: hex]
+  - `-n, --nolist` Suppress listing (.lst file)
+  - `-m, --machine <type>` Processor type, one of the following: Z80, I8080, C6502, C65816, CDP1802, M6800, M6809
+  - `-h, --help` See HELP
 
-  Machine type can be omitted. Right CPU is determined by file name extension.
+  Machine type can be omitted. Right CPU is determined by file name extension. -t option overrides this determining.
 
   - Intel 8080: .A80
   - Zilog Z80: .Z80
