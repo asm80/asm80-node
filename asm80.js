@@ -59,8 +59,10 @@ program.version('1.0.0')
   .on('--help', function(){
     console.log('  Machine types:');
     console.log('');
-    for (var i in Monolith) {
-      console.log("   - "+i);
+    if (Monolith) {
+      for (var i in Monolith) {
+        console.log("   - "+i);
+      }
     }
     console.log('');
   })
@@ -72,16 +74,17 @@ if (!program.args.length) {
 }
 
 var asmType = function(fn) {
+  var type="unknown";
   switch (path.extname(fn).toUpperCase()){
-    case '.A80': return 'I8080';
-    case '.A68': return 'M6800';
-    case '.A18': return 'CDP1802';
-    case '.A09': return 'M6809';
-    case '.A65': return 'C6502';
-    case '.816': return 'C65816';
-    case '.Z80': return 'Z80';
+    case '.A80': type = 'I8080'; break;
+    case '.A68': type = 'M6800'; break;
+    case '.A18': type = 'CDP1802'; break;
+    case '.A09': type = 'M6809'; break;
+    case '.A65': type = 'C6502'; break;
+    case '.816': type = 'C65816'; break;
+    case '.Z80': type = 'Z80'; break;
   }
-  return "unknown";
+  return type;
 };
 
 var fn = path.resolve(__cwd, program.args[program.args.length-1]);
@@ -144,7 +147,7 @@ delete(npath.base);
 var vx = vxx[1];
 
 var outdata;
-if (otype == "srec") {
+if (otype === "srec") {
   outdata = ASM.srec(vx[0]);
 } else {
   outdata = ASM.hex(vx[0]);

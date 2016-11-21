@@ -6,7 +6,7 @@ var rle1Decode = function(encoded) {
     encoded.forEach(function(pair){
       if (typeof pair == "number") {output.push(pair);return;}
       for (var i=0;i<pair[0];i++) { output.push(pair[1]);}
-    })
+    });
     return output;
 };
 
@@ -98,7 +98,7 @@ var makeTAP = function(V) {
     if (opaddr!==undefined && len === 0) {
       addr = opaddr;
     }
-    if (opaddr != (addr + len)) {
+    if (opaddr !== (addr + len)) {
       if (len) {
         //flush
         out=aconcat(out,makeTapBlock(addr,dta,num++));
@@ -193,4 +193,4 @@ var  hex2prg = function(hex,ent) {
     "makeSNA": makeSNA,
     "makeTAP": makeTAP
 
-}
+};

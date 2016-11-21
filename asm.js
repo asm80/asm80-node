@@ -42,7 +42,7 @@ var ASM = {};
 (function(name, definition) {
     if (typeof module != 'undefined') module.exports = definition();
     else if (typeof define == 'function' && typeof define.amd == 'object') {define(definition);}
-    else {this[name] = definition()}
+    else {this[name] = definition();}
 }('ASM', function() {
   "use strict";
   var assembler = null;
@@ -67,7 +67,7 @@ var ASM = {};
   var nonempty = function(xs) {
     return xs.filter(function(lx){
       var l = lx.line;
-      while (l[0]==' ') {l = l.substr(1);}
+      while (l[0]===' ') {l = l.substr(1);}
       return l.length?true:false;
     });
   };
@@ -260,8 +260,9 @@ var ASM = {};
       return s;
     }
 
+    var ax;
     try {
-      var ax = assembler.parseOpcode(s);
+      ax = assembler.parseOpcode(s);
     } catch (e) {
       throw {"msg":e, "s":s};
 
@@ -445,13 +446,13 @@ var ASM = {};
     for (var q=0;q<i.length;q++) {
       op = i[q];
       ln = '';
-      if (op.remark=='EMPTYLINE') {
+      if (op.remark==='EMPTYLINE') {
         out += "\n"; continue;
       }
       if (op.label) {
 
         ln += op.label;
-        if (op.opcode!='EQU' && op.opcode!='=') ln += ':';
+        if (op.opcode!=='EQU' && op.opcode!=='=') ln += ':';
         ln+=' ';
       }
       while (ln.length<12) {ln+= ' ';}
@@ -463,7 +464,7 @@ var ASM = {};
 
     }
     return out;
-  }
+  };
 
   var pass1 = function(V, vxs) {
     var PC = 0;
@@ -475,6 +476,7 @@ var ASM = {};
     var cond;
     var blocks = [];
     var phase = 0;
+    var bytes;
     for (var i=0, j=V.length;i<j;i++) {
 
       op = V[i];
@@ -504,7 +506,7 @@ var ASM = {};
           cond = Parser.evaluate(op.params[0], vars);
           if (cond) ifskip = 1;
         } catch (e) { }
-        continue
+        continue;
       }
 
       if (op.opcode==='.BLOCK') {
@@ -609,8 +611,8 @@ var ASM = {};
       }
       if (op.opcode === "DS" || op.opcode === "RMB") {
         //op.bytes = Parser.evaluate(op.params[0]);
-        var bytes = Parser.evaluate(op.params[0], vars);
-        if (op.params.length==2) {
+        bytes = Parser.evaluate(op.params[0], vars);
+        if (op.params.length===2) {
           //DB alias
           m = Parser.evaluate(op.params[1], vars);
           if (typeof m === 'string') m = m.charCodeAt(0);
@@ -771,7 +773,7 @@ var ASM = {};
         blocks.push(op.numline);
         redef  = vars['__'+blocks.join("/")];
         for (nn = 0;nn<redef.length;nn++) {
-          vars[blocks.join("/")+"/"+redef[nn]] = vars[redef[nn]]
+          vars[blocks.join("/")+"/"+redef[nn]] = vars[redef[nn]];
           vars[redef[nn]] = vars[blocks.join("/")+"/"+redef[nn]+"$"];
         }
         //console.log(vars);
@@ -982,7 +984,7 @@ var ASM = {};
     out+="\n\n";
     for (var k in vars) {
       if (vars[k]===null) continue;
-      if (k[0]=='_' && k[1]=='_') continue;
+      if (k[0]==='_' && k[1]==='_') continue;
       if (k[k.length-1]==='$') continue;
       ln = '';
       ln += k;
@@ -1122,7 +1124,7 @@ var ASM = {};
       op = V[i];
       if (op.opcode==='.PRAGMA') {
         //hex len?
-        if(op.params.length==2 && op.params[0].toUpperCase()=='HEXLEN') {
+        if(op.params.length===2 && op.params[0].toUpperCase()==='HEXLEN') {
           ilen = parseInt(op.params[1]);
           if (ilen<1 || ilen>64) ilen=16;
         }
@@ -1132,7 +1134,7 @@ var ASM = {};
       if (opaddr!==undefined && len === 0) {
         addr = opaddr;
       }
-      if (opaddr != (addr + len)) {
+      if (opaddr !== (addr + len)) {
         if (len) {
           //flush
           out+=makeHex(addr,dta,ilen);
