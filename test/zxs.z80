@@ -1,0 +1,9 @@
+org 0x8000
+.ent $
+
+ld bc,0x17ff
+ld hl,0x4000
+ld de,0x4001
+ld (hl),d
+ldir
+ret

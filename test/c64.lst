@@ -1,0 +1,40 @@
+0000                          ;======================================
+0000                          ;    HELLO WORLD - ASSEMBLY VERSION
+0000                          ;======================================
+0810                          .ORG   $0810   ;SYS 2064 to start
+0810                          .ENT   $   ;ENTER HERE
+0810                          .PRAGMA   prg   ;create PRG file.
+0810   78                     SEI   
+0811   20 44 E5               JSR   $E544   ;QUICK SCREEN CLEAR
+0814   A9 02                  LDA   #$02   ;RED BORDER
+0816   A2 00                  LDX   #$00   ;BLACK BACKGROUND
+0818   A0 14                  LDY   #$14   ;DEFAULT C64 CHAR
+081A   8D 20 D0               STA   $D020   
+081D   8E 21 D0               STX   $D021   
+0820   8C 18 D0               STY   $D018   
+0823                          ;DISPLAY HELLO WORLD! AT $0400
+0823   A2 00                  LDX   #$00   
+0825   BD 42 08     DISPHELLO:   LDA   HELLOTXT,X   
+0828   C9 40                  CMP   #$40   
+082A   90 03                  BCC   CHAROKAY   
+082C   38                     SEC   
+082D   E9 40                  SBC   #$40   
+082F                CHAROKAY:   
+082F   9D 00 04               STA   $0400,X   
+0832   E8                     INX   
+0833   E0 0B                  CPX   #$0B   
+0835   D0 EE                  BNE   DISPHELLO   
+0837                SPACEKEY:   
+0837   EE 20 D0               INC   $D020   
+083A   AD 01 DC               LDA   $DC01   ;WAIT FOR SPACEBAR
+083D   C9 EF                  CMP   #$EF   
+083F   D0 F6                  BNE   SPACEKEY   
+0841   60                     RTS   
+0842   48 45 4C 4C 4F 20 57 4F 52 4C 44 21 HELLOTXT:   DB   "HELLO WORLD!"   
+
+
+_PC         0842
+DISPHELLO   0825
+CHAROKAY    082F
+SPACEKEY    0837
+HELLOTXT    0842

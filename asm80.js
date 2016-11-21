@@ -94,6 +94,16 @@ if (program.machine) {
 
 var vxx = [null, null];
 
+var mpath = path.parse(fn);
+var root = mpath.dir;
+//console.log(mpath);
+
+ASM.fileGet(function(fn){
+  var nfn = path.resolve(root,fn);
+  //console.log("Include", path.resolve(root,fn));
+  return LFS.load(nfn);
+})
+
 switch (asmtype) {
   case 'I8080':	vxx = ASM.compile(data, Monolith.I8080); break;
   case 'C6502':	vxx = ASM.compile(data, Monolith.C6502); break;
