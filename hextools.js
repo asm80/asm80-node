@@ -124,13 +124,13 @@ var RAM=[];
 
 var  hexLine = function(ln, offset) {
     var i;
-    if (ln[0]!=':') return false;
+    if (ln[0]!==':') {return false;}
     var len = parseInt(ln[1]+ln[2], 16);
     var start = parseInt(ln[3]+ln[4]+ln[5]+ln[6], 16);
     var typ = parseInt(ln[7]+ln[8], 16);
     offset = offset || 0;
     var addrx;
-    if (typ==0) {
+    if (typ===0) {
         for (i=0;i<len;i++) {
             RAM[start+i+offset] = parseInt(ln[9+2*i]+ln[10+2*i], 16);
             addrx=start+i;

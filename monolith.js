@@ -4,7 +4,7 @@ var Z80={set:{DEC:[-1,-1,-1,-1,5,-1,11,-1,-1,-1,-1,-1,-1,-1],INC:[-1,-1,-1,-1,4,
     if (typeof module != 'undefined') module.exports = definition();
     else if (typeof define == 'function' && typeof define.amd == 'object') define(definition);
     else this[name] = definition();
-}('ASM', function() {
+}('Monolith', function() {
 	"use strict";
 
 

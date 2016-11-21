@@ -72,15 +72,15 @@ if (!program.args.length) {
 }
 
 var asmType = function(fn) {
-  var ext = path.extname(fn).toUpperCase();
-  if (ext==='.A80') {return 'I8080';}
-  if (ext==='.A68') {return 'M6800';}
-  if (ext==='.A18') {return 'CDP1802';}
-  if (ext==='.A09') {return 'M6809';}
-  if (ext==='.A65') {return 'C6502';}
-  if (ext==='.816') {return 'C65816';}
-  if (ext==='.Z80') {return 'Z80';}
-
+  switch (path.extname(fn).toUpperCase()){
+    case '.A80': return 'I8080';
+    case '.A68': return 'M6800';
+    case '.A18': return 'CDP1802';
+    case '.A09': return 'M6809';
+    case '.A65': return 'C6502';
+    case '.816': return 'C65816';
+    case '.Z80': return 'Z80';
+  }
   return "unknown";
 };
 
@@ -153,24 +153,24 @@ if (program.output) {
   npath.base = program.output;
 }
 
-if (otype == "prg") {
-  if (asmtype!=="C6502") console.log("Warning: PRG is for Commodore C64, it should be compiled for 6502 CPU");
-  if (!ASM.ENT) console.log("Please specify the entry point (use .ENT directive)");
+if (otype === "prg") {
+  if (asmtype!=="C6502") {console.log("Warning: PRG is for Commodore C64, it should be compiled for 6502 CPU");}
+  if (!ASM.ENT) {console.log("Please specify the entry point (use .ENT directive)");}
   outdata = hextools.hex2prg(outdata,ASM.ENT);
 }
 
-if (otype == "com") {
-  if (asmtype!=="I8080" && asmtype !== "Z80") console.log("Warning: COM is for CP/M, it should be compiled for 8080/Z80 CPU");
+if (otype === "com") {
+  if (asmtype!=="I8080" && asmtype !== "Z80") {console.log("Warning: COM is for CP/M, it should be compiled for 8080/Z80 CPU");}
   outdata = hextools.hex2com(outdata,ASM.ENT);
 }
 
-if (otype == "sna") {
-  if (asmtype !== "Z80") console.log("Warning: SNA is for ZX Spectrum, it should be compiled for Z80 CPU");
+if (otype === "sna") {
+  if (asmtype !== "Z80") {console.log("Warning: SNA is for ZX Spectrum, it should be compiled for Z80 CPU");}
   outdata = hextools.makeSNA(vx[0],ASM.ENT);
 }
 
-if (otype == "tap") {
-  if (asmtype !== "Z80") console.log("Warning: TAP is for ZX Spectrum, it should be compiled for Z80 CPU");
+if (otype === "tap") {
+  if (asmtype !== "Z80") {console.log("Warning: TAP is for ZX Spectrum, it should be compiled for Z80 CPU");}
   outdata = hextools.makeTAP(vx[0],ASM.ENT);
 }
 

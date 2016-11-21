@@ -41,8 +41,8 @@ var ASM = {};
 
 (function(name, definition) {
     if (typeof module != 'undefined') module.exports = definition();
-    else if (typeof define == 'function' && typeof define.amd == 'object') define(definition);
-    else this[name] = definition();
+    else if (typeof define == 'function' && typeof define.amd == 'object') {define(definition);}
+    else {this[name] = definition()}
 }('ASM', function() {
   "use strict";
   var assembler = null;
@@ -56,10 +56,10 @@ var ASM = {};
       var l = lx.line;
       l = l.replace("&lt;",'<');
       l = l.replace("&gt;",'>');
-      while (l[l.length-1]==' ') {l = l.substr(0,l.length-1);}
+      while (l[l.length-1]===' ') {l = l.substr(0,l.length-1);}
       lx.line = l;
-      if (l[0]!=' ') {return lx;}
-      while (l[0]==' ') {l = l.substr(1);}
+      if (l[0]!==' ') {return lx;}
+      while (l[0]===' ') {l = l.substr(1);}
       lx.line = ' '+l;
       return lx;
     });
@@ -148,7 +148,7 @@ var ASM = {};
         }
 
         var px = ppc.split(/\s*,\s*/);
-        s.params = px.map(function(ppc){return trim(ppc.replace(/€/g,',').replace(/§/g,';'));});
+        s.params = px.map(function(ppc){return trim(ppc.replace(/€/g,",").replace(/§/g,";"));});
 
 
         t = pp[2].replace(/§/g,';');
@@ -170,7 +170,7 @@ var ASM = {};
     if (s.opcode==='ORG') {
       s.opcode = '.ORG';
     }
-    if (s.opcode==='.ERROR') {
+    if (s.opcode===".ERROR") {
       throw {"msg":s.paramstring, "s":s};
     }
     if (s.opcode==='.EQU') {
