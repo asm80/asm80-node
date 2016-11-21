@@ -18,12 +18,12 @@
   Options are:
 
   - `-o, --output <file>` Output file name
-  - `-t, --type <type>` Output type [default: hex]
+  - `-t, --type <type>` Output type [default: hex]. Available types are: hex, srec, com (for CP/M), sna, tap (for ZX Spectrum), prg (for C64)
   - `-n, --nolist` Suppress listing (.lst file)
   - `-m, --machine <type>` Processor type, one of the following: Z80, I8080, C6502, C65816, CDP1802, M6800, M6809
   - `-h, --help` See HELP
 
-  Machine type can be omitted. Right CPU is determined by file name extension. -t option overrides this determining.
+  Machine type can be omitted. Right CPU is determined by file name extension (-m option overrides this decision).
 
   - Intel 8080: .A80
   - Zilog Z80: .Z80
@@ -35,5 +35,6 @@
 
 ## More info
 
-  See https://www.uelectronics.info/category/my-projects/
+  See https://www.uelectronics.info/category/my-projects/ for more info
+
   or http://www.asm80.com for online IDE, based on this assembler
