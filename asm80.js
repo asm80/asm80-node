@@ -38,11 +38,14 @@ OTHER DEALINGS IN THE SOFTWARE.
 /* eslint-disable no-console */
 /*global process __dirname*/
 
+var __cwd = process.cwd();
+
 var ASM = require("./asm.js");
 var Monolith = require("./monolith.js");
 var path = require("path");
 var LFS = require("./lfsnode.js");
 var hextools = require("./hextools.js");
+
 
 
 var program = require('commander');
@@ -81,12 +84,11 @@ var asmType = function(fn) {
   return "unknown";
 };
 
-var fn = path.resolve(__dirname, program.args[program.args.length-1]);
+var fn = path.resolve(__cwd, program.args[program.args.length-1]);
 
 var asmtype = (asmType(fn));
 
 var data = LFS.load(program.args[program.args.length-1]);
-//console.log(asmtype);
 
 if (program.machine) {
   asmtype = program.machine.toUpperCase();
@@ -118,7 +120,8 @@ switch (asmtype) {
 
 if (vxx[0]) {
   //error
-  console.log(vxx[0].msg+ "\n" + "Line: "+vxx[0].s.numline);
+  console.log(vxx[0]);
+  //+ "\n" + "Line: "+vxx[0].s.numline);
   process.exit(-1);
 }
 

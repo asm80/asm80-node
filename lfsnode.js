@@ -5,20 +5,20 @@ module.exports = {
 
 	load: function(fn){
 		try {
-			console.log(path.resolve(__dirname, fn));
-			return fs.readFileSync(path.resolve(__dirname, fn))+'';
+			console.log("Processing: "+path.resolve(process.cwd(), fn));
+			return fs.readFileSync(path.resolve(process.cwd(), fn))+'';
 		} catch (e) {return null;}
 	},
 	loadRaw: function(fn){
 		try {
-			return fs.readFileSync(path.resolve(__dirname, fn));
+			return fs.readFileSync(path.resolve(process.cwd(), fn));
 		} catch (e) {return null;}
 	},
 	save: function(fn,data){
-		fs.writeFileSync(path.resolve(__dirname, fn),data);
+		fs.writeFileSync(path.resolve(process.cwd(), fn),data);
 	},
 	saveRaw: function(fn,data){
-		fs.writeFileSync(path.resolve(__dirname, fn),new Buffer(data));
+		fs.writeFileSync(path.resolve(process.cwd(), fn),new Buffer(data));
 	}
 	};
 

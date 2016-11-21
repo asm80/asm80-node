@@ -1,0 +1,11 @@
+8000                          .ORG   0x8000   
+8000                          .ENT   $   
+8000   01 FF 17               LD   bc,0x17ff   
+8003   21 00 40               LD   hl,0x4000   
+8006   11 01 40               LD   de,0x4001   
+8009   72                     LD   (hl),d   
+800A   ED B0                  LDIR   
+800C   C9                     RET   
+
+
+_PC         800C
