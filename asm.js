@@ -75,7 +75,7 @@ var ASM = {};
     return xs.map(function(lx){
       var l = lx.line;
       var lx2 = {addr:0,line:";;;EMPTYLINE", numline:lx.numline};
-      while (l[0]==' ') {l = l.substr(1);}
+      while (l[0]===' ') {l = l.substr(1);}
       return l.length?lx:lx2;
     });
   };
@@ -1001,7 +1001,7 @@ var ASM = {};
       par+='';
       for (var k in vars) {
         if (vars[k]===null) continue;
-        if (k[0]=='_' && k[1]=='_') continue;
+        if (k[0]==='_' && k[1]==='_') continue;
         if (k[k.length-1]==='$') continue;
         var re = new RegExp(k,"i");
         if (par.match(re)) {
@@ -1009,7 +1009,7 @@ var ASM = {};
         }
       }
       return par;
-    }
+    };
     var ln;
     var op;
     var out='<html><head><meta charset=utf-8><body><table>';
@@ -1210,7 +1210,7 @@ var isrec = function(V) {
     if (opaddr!==undefined && len === 0) {
       addr = opaddr;
     }
-    if (opaddr != (addr + len)) {
+    if (opaddr !== (addr + len)) {
       if (len) {
         //flush
         out+=makeSrec(addr,dta);
