@@ -65,6 +65,7 @@ program.version('1.0.0')
       }
     }
     console.log('');
+    console.log('See https://maly.github.io/asm80-node/ for further docs');
   })
   .parse(process.argv);
 
