@@ -46,4 +46,6 @@
 
 ## Changes
 
+  - 0.9.11: Incbin fixed
+  - 0.9.10: Manual reference added
   - 0.9.9: First working version
