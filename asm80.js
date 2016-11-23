@@ -103,10 +103,10 @@ var mpath = path.parse(fn);
 var root = mpath.dir;
 //console.log(mpath);
 
-ASM.fileGet(function(fn){
+ASM.fileGet(function(fn,binary){
   var nfn = path.resolve(root,fn);
   //console.log("Include", path.resolve(root,fn));
-  return LFS.load(nfn);
+  return LFS.load(nfn, binary);
 });
 
 switch (asmtype) {

@@ -680,10 +680,12 @@ var ASM = {};
         var nf = fileGet(op.params[0],true);
         if (!nf) throw {"msg":"Cannot find file "+op.params[0]+" for incbin", "s":op};
 
+        var nb = new Uint8Array(nf);
+        //console.log(nb);
         op.bytes = 0;
         op.lens = [];
-        for (iq=0;iq<nf.length;iq++) {
-          var cd = nf.charCodeAt(iq);
+        for (iq=0;iq<nb.length;iq++) {
+          var cd = nb[iq];
           if (cd>255) {
             op.lens[op.bytes++] = cd>>8;
           }
