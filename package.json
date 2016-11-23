@@ -1,6 +1,6 @@
 {
   "name": "asm80",
-  "version": "0.9.9",
+  "version": "0.9.10",
   "description": "ASM80 stand-alone assembler",
   "main": "asm80.js",
   "scripts": {
