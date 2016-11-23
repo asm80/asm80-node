@@ -34,6 +34,10 @@
   - WDT 65816: .816
   - CDP 1802: .A18
 
+## Format, directives etc.
+
+  See [ASM80 GitHub Pages](https://maly.github.io/asm80-node/) for further information.
+
 ## More info
 
   See https://www.uelectronics.info/category/my-projects/ for more info
