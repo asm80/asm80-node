@@ -4,7 +4,7 @@
 [![NPM Downloads](https://img.shields.io/npm/dm/asm80.svg?style=flat)](https://www.npmjs.org/package/asm80)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/02de4cbfc6fc4ff1a9c0fe4e16d72bde)](https://www.codacy.com/app/maly/asm80-node?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=maly/asm80-node&amp;utm_campaign=Badge_Grade)
 
-  The Assember for the 8bit CPUs
+  The Assembler for the 8bit CPUs
 
 ## Installation
 
@@ -12,9 +12,9 @@
 
 ## Usage
 
-  asm80 [options] <file>
+  asm80 [options] filename
 
-  Assembles given file, e.g. test.z80, into two files: test.hex (binary) and test.lst (listing).
+  Assembles given the file, e.g. test.z80, into two files: test.hex (binary) and test.lst (listing).
 
   Options are:
 
