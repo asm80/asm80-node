@@ -37,6 +37,10 @@
 ## Format, directives etc.
 
   See [ASM80 GitHub Pages](https://maly.github.io/asm80-node/) for further information.
+  
+## Support
+
+  [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PZRPU5M94NLJA)
 
 ## More info
 
