@@ -8,7 +8,7 @@ var sectionHeight = function() {
   } else {
     $section.css('height','auto');
   }
-}
+};
 
 $(window).resize(sectionHeight);
 
