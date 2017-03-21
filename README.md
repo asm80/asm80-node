@@ -34,7 +34,7 @@
   - Motorola 6800: .A68
   - Motorola 6809: .A09
   - MOS 6502: .A65
-  - WDT 65816: .816
+  - WDC 65816: .816
   - CDP 1802: .A18
 
 ## Format, directives etc.
