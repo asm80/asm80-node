@@ -60,13 +60,33 @@
 
         <h3>String literals</h3>
 
-        <p>There is one format of string literals. They should be single or double quote delimited. Both of these forms are equivalent.
+        <p>There is one format of string literals. They should be double quote delimited. Assembler can parse single quote form too, but it should produce an error, when delimitation is used in string, so please use double quotes.
 
         <p>A string literal of length 1 can be used as a numeric constant with the numeric value of the character contained. This allows expressions such as 'A' + 80h to be evaluated as expected.
 
+        <h3>Identifiers</h3>
         <p>Identifiers are the names used for labels, EQU symbols and macro names and parameters. The names of the CPU mnemonics, registers, and flag names, and of assembling directives are reserved and can not be used as names of identifiers. Reserved names are case insensitive, even if case sensitive mode is used.
 
-            <p>Identifiers are not case sensitive.
+        <p>Identifiers are not case sensitive. Internally are converted to uppercase
+
+        <h3>Expressions</h3>
+
+        <p>Parser can evaluate simple math expressions, with all of the common operators, like +, -, /, *, # (modulo). You can use identifiers as a variables too, e.g. "LOOP + 3".
+        <p>There are some specials here, like string repetitions ("A"*3 produces "AAA") or upper / lower part of identifier value. If LOOP is 0x1234, then &lt;LOOP means 0x34, &gt;LOOP means 0x12
+
+
+        <h2>Machine type</h2>
+        
+		<p>Right CPU is determined by file name extension, or by .engine directive (see below). File name extensions are:
+
+  <ul><li>Intel 8080: .A80</li>
+  <li>Zilog Z80: .Z80</li>
+  <li>Motorola 6800: .A68</li>
+  <li>Motorola 6809: .A09</li>
+  <li>MOS 6502: .A65</li>
+  <li>WDC 65816: .816</li>
+  <li>CDP 1802: .A18</li>
+  </ul>
 
                <h2>Directives</h2>
                <table>
@@ -77,6 +97,46 @@
                </tr>
                </thead>
                <tbody>
+
+               <tr><th colspan=2>Output controls</th></tr>
+               <tr>
+                 <td>.cpu</td>
+                 <td>Select CPU type. Available values are: 8080, Z80, 6502, M6800, CDP1802, M6809, C65816</td>
+               </tr>
+               <tr>
+                 <td>.engine</td>
+                 <td>Controls machine type for emulation (only in online <a href="https://www.asm80.com">ASM80</a>). Available values are: PMI, PMD, JPR, KIM, SBCZ80, SBC6502, SBC09, ZXS and CPM</td>
+               </tr>
+               <tr>
+                 <td>.pragma sna</td>
+                 <td>Makes SNA file instead of HEX (only for Z80)</td>
+               </tr>
+               <tr>
+                 <td>.pragma tap</td>
+                 <td>Makes TAP file instead of HEX (only for Z80)</td>
+               </tr>
+               <tr>
+                 <td>.pragma prg</td>
+                 <td>Makes C64's PRG file instead of HEX (only for 6502) [<a href="https://www.uelectronics.info/2015/04/10/asm80-news-cpm-c64-etc/">read more</a>]<br><pre>
+                 .PRAGMA PRG – says “make .PRG instead of .HEX”
+				 .ORG $0810 – or higher
+				 .ENT $ – for “enter here”
+				 </pre>
+                 </td>
+               </tr>
+
+               <tr>
+                 <td>.pragma com</td>
+                 <td>Makes CP/M COM file instead of HEX (only for Z80/8080) [<a href="https://www.uelectronics.info/2015/04/10/asm80-news-cpm-c64-etc/">read more</a>]</td>
+               </tr>
+
+               <tr>
+                 <td>.pragma html</td>
+                 <td>Makes HTML listing (instead of LPT)</td>
+               </tr>
+
+               <tr><th colspan=2>Data definition</th></tr>
+
                <tr>
                <td>db (aliases: defb, fcb)</td>
                <td>Define Byte. The argument is a comma separated list of string literals or numeric expressions. The string literals are inserted in the object code, and the result of the numeric expression is inserted as a single byte, truncating it if needed. You can use DUP for entering N same values: DB 10 DUP (123) means "10 times value 123"</td>
@@ -105,6 +165,8 @@
                <td>Include a file. The file is readed and the result is the same as if the file were copied in the current file instead of the INCLUDE line. The file included may contain INCLUDE directives, and so on. INCLUDE directives are processed before the assembly phases, so the use of IF directives to conditionally include different files is not allowed.</td>
                </tr>
 
+               <tr><th colspan=2>Code control</th></tr>
+
                <tr>
                <td>org <em>addr</em></td>
                <td>ORiGin. Establishes the origin position where to place generated code. Several ORG directives can be used in the same program, but if the result is that code generated overwrites previous, the result is undefined.</td>
@@ -126,6 +188,8 @@
                <td>.dephase</td>
                <td>End phase block.</td>
                </tr>
+
+               <tr><th colspan=2>Preprocessor</th></tr>
 
 
                <tr>
@@ -187,6 +251,7 @@
                <td>.x16</td>
                <td>16bit index</td>
                </tr>
+
 
                </tbody>
                </table>
