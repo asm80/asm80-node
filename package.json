@@ -23,7 +23,7 @@
     "6800",
     "1802"
   ],
-  "author": "Martin Maly <martin.maly@bigclown.com> (http://bigclown.com)",
+  "author": "Martin Maly <maly@maly.cz> (http://www.asm80.com)",
   "engines": {
     "node": ">=5.10",
     "npm": "1"
