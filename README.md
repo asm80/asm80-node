@@ -39,9 +39,9 @@
 
 ## Format, directives etc.
 
-  See [ASM80 GitHub Pages](https://maly.github.io/asm80-node/) for further information.
+  See [ASM80 GitBook](https://maly.gitbooks.io/asm80/content/) for further information.
   
-## Support
+## Support me
 
   [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PZRPU5M94NLJA)
 
@@ -52,7 +52,10 @@
   or http://www.asm80.com for online IDE, based on this assembler
 
 ## Changes
-
+  
+  - 1.0.4: Documentation moved to GitBooks
+  - 1.0.3: Directives .pstr, .cstr and .istr added
+  - 1.0.0: Typos fixed, all Codacy needs achieved etc.
   - 0.9.11: Incbin fixed
   - 0.9.10: Manual reference added
   - 0.9.9: First working version
