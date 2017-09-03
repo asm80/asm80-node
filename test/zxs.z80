@@ -7,3 +7,8 @@ ld de,0x4001
 ld (hl),d
 ldir
 ret
+
+hello:
+ .cstr "Hello"
+ .pstr "Hello"
+ .istr "Hello"

@@ -6,6 +6,11 @@
 8009   72                     LD   (hl),d   
 800A   ED B0                  LDIR   
 800C   C9                     RET   
+800D                HELLO:    
+800D   48 65 6C 6C 6F 00      .CSTR   "Hello"   
+8013   05 48 65 6C 6C 6F      .PSTR   "Hello"   
+8019   48 65 6C 6C EF         .ISTR   "Hello"   
 
 
-_PC         800C
+_PC         8019
+HELLO       800D
