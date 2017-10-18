@@ -78,6 +78,7 @@ var asmType = function(fn) {
   var type="unknown";
   switch (path.extname(fn).toUpperCase()){
     case '.A80': type = 'I8080'; break;
+    case '.A08': type = 'I8008'; break;
     case '.A68': type = 'M6800'; break;
     case '.A18': type = 'CDP1802'; break;
     case '.A09': type = 'M6809'; break;
@@ -112,6 +113,7 @@ ASM.fileGet(function(fn,binary){
 
 switch (asmtype) {
   case 'I8080':	vxx = ASM.compile(data, Monolith.I8080); break;
+  case 'I8008': vxx = ASM.compile(data, Monolith.I8008); break;
   case 'C6502':	vxx = ASM.compile(data, Monolith.C6502); break;
   case 'C65816':	vxx = ASM.compile(data, Monolith.C65816); break;
   case 'Z80':		vxx = ASM.compile(data, Monolith.Z80); break;
