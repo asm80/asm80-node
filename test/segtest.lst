@@ -1,0 +1,39 @@
+0000                          .PRAGMA   segment   
+0100                          .ORG   0100h   
+0100   C3 03 01               JP   begin   
+0000                          .DSEG   
+8000                          .ORG   8000h   
+8000   0A           DATA:     DB   10   
+0000                          .ESEG   
+0000   01 02 03 04 05 06 07 08 09 DB   1,2,3,4,5,6,7,8,9   
+0000                          .BSSEG   
+9000                          .ORG   9000h   
+9000                DEST:     DS   1   
+0103                          .CSEG   
+0103                BEGIN:    
+0103   21 00 80               LD   hl,data   
+0106   11 00 90               LD   de,dest   
+0109   01 01 00               LD   bc,1   
+010C   ED B0                  LDIR   
+010E   21 01 80               LD   hl,data2   
+0111   11 01 90               LD   de,dest2   
+0114   4E                     LD   c,(hl)   
+0115   03                     INC   bc   
+0116   ED B0                  LDIR   
+0118   C9                     RET   
+8001                          .DSEG   
+8001   04 41 68 6F 6A DATA2:   .PSTR   "Ahoj"   
+9001                          .BSSEG   
+9001                DEST2:    DS   100   
+
+
+DATA        8000 DEFINED AT LINE 8
+            USED AT LINE 20
+DEST        9000 DEFINED AT LINE 15
+            USED AT LINE 21
+BEGIN       0103 DEFINED AT LINE 18
+            USED AT LINE 3
+DATA2       8001 DEFINED AT LINE 33
+            USED AT LINE 25
+DEST2       9001 DEFINED AT LINE 36
+            USED AT LINE 26

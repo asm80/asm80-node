@@ -1,0 +1,36 @@
+.pragma segment
+org 0100h
+jp begin
+
+
+.dseg
+org 8000h
+data: db 10
+
+.eseg
+db 1,2,3,4,5,6,7,8,9
+
+.bsseg
+org 9000h
+dest: ds 1
+
+.cseg
+begin:
+
+ld hl, data
+ld de, dest
+ld bc, 1
+ldir
+
+ld hl, data2
+ld de, dest2
+ld c, (hl)
+inc bc
+ldir
+ret
+
+.dseg
+data2: .pstr "Ahoj"
+
+.bsseg
+dest2: ds 100

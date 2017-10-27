@@ -155,8 +155,21 @@ if (otype === "srec") {
 } else {
   outdata = ASM.hex(vx[0]);
 }
+
 if (program.output) {
   npath.base = program.output;
+}
+
+if (ASM.PRAGMAS.indexOf("SEGMENT")>=0) {
+  LFS.save(path.format(npath),outdata);
+  //FS.save(fileEdit+'.hex', hex)
+  var mseg = ASM.hex(vx[0],'DSEG');
+  npath.ext =".dseg.hex";
+  if (mseg.length>11) LFS.save(path.format(npath),mseg);
+  npath.ext =".eseg.hex";
+  mseg = ASM.hex(vx[0],'ESEG');
+  if (mseg.length>11) LFS.save(path.format(npath),mseg);
+  npath.ext =".hex";
 }
 
 if (otype === "prg") {

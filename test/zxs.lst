@@ -12,5 +12,4 @@
 8019   48 65 6C 6C EF         .ISTR   "Hello"   
 
 
-_PC         8019
-HELLO       800D
+HELLO       800D DEFINED AT LINE 11
