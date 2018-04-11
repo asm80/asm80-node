@@ -12,4 +12,4 @@
 8019   48 65 6C 6C EF         .ISTR   "Hello"   
 
 
-HELLO       800D DEFINED AT LINE 11
+HELLO:              800D DEFINED AT LINE 11
