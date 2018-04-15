@@ -3737,504 +3737,1603 @@ F233                          ;******************   E N D   O F   C P / M   ****
 F233                          ;*
 
 
-_PC         F233
-MEM         003E
-IOBYTE      0003
-TDRIVE      0004
-ENTRY       0005
-TFCB        005C
-TBUFF       0080
-TBASE       0100
-CNTRLC      0003
-CNTRLE      0005
-BS          0008
-TAB         0009
-LF          000A
-FF          000C
-CR          000D
-CNTRLP      0010
-CNTRLR      0012
-CNTRLS      0013
-CNTRLU      0015
-CNTRLX      0018
-CNTRLZ      001A
-DEL         007F
-CBASE       DC00
-INBUFF      DC06
-INPOINT     DC88
-NAMEPNT     DC8A
-PRINT       DC8C
-PRINTB      DC92
-CRLF        DC98
-SPACE       DCA2
-PLINE       DCA7
-PLINE2      DCAC
-RESDSK      DCB8
-DSKSEL      DCBD
-ENTRY1      DCC3
-OPEN        DCCB
-OPENFCB     DCD0
-CLOSE       DCDA
-SRCHFST     DCDF
-SRCHNXT     DCE4
-SRCHFCB     DCE9
-DELETE      DCEF
-ENTRY2      DCF4
-RDREC       DCF9
-READFCB     DCFE
-WRTREC      DD04
-CREATE      DD09
-RENAM       DD0E
-GETUSR      DD13
-GETSETUC    DD15
-SETCDRV     DD1A
-MOVECD      DD29
-UPPER       DD30
-GETINP      DD39
-GETINP1     DD96
-GETINP2     DDA7
-GETINP3     DDAB
-GETINP4     DDBA
-CHKCON      DDC2
-GETDSK      DDD0
-STDDMA      DDD5
-DMASET      DDD8
-DELBATCH    DDDD
-VERIFY      DDF5
-VERIFY1     DDFD
-SYNERR      DE09
-SYNERR1     DE0F
-SYNERR2     DE22
-CHECK       DE30
-NONBLANK    DE4F
-ADDHL       DE59
-CONVFST     DE5E
-CONVERT     DE60
-CONVRT1     DE89
-CONVRT2     DE90
-CONVRT3     DE96
-CONVRT4     DE98
-CONVRT5     DEA9
-CONVRT6     DEAB
-CONVRT7     DEAF
-CONVRT8     DEB9
-GETEXT      DEC0
-GETEXT1     DEC8
-GETEXT2     DED9
-GETEXT3     DEDB
-GETEXT4     DEDF
-GETEXT5     DEE9
-GETEXT6     DEF0
-GETEXT7     DEF2
-GETEXT8     DF01
-GETEXT9     DF09
-NUMCMDS     0006
-CMDTBL      DF10
-PATTRN1     DF28
-SEARCH      DF2E
-SEARCH1     DF33
-SEARCH2     DF3C
-SEARCH3     DF4F
-SEARCH4     DF54
-CLEARBUF    DF58
-COMMAND     DF5C
-CMMND1      DF82
-CMMND2      DF98
-CMDADR      DFC1
-HALT        DFCF
-RDERROR     DFD9
-RDERR       DFDF
-NONE        DFEA
-NOFILE      DFF0
-DECODE      DFF8
-DECODE1     E008
-DECODE2     E02A
-DECODE3     E033
-DECODE4     E03A
-MOVE3       E040
-HL2DE       E042
-EXTRACT     E04B
-DSELECT     E054
-RESETDR     E066
-DIRECT      E077
-DIRECT1     E088
-DIRECT2     E08F
-DIRECT3     E098
-DIRECT4     E0CC
-DIRECT5     E0D4
-DIRECT6     E0D9
-DRECT63     E0F7
-DRECT65     E0F9
-DIRECT7     E10E
-DIRECT8     E10F
-DIRECT9     E11B
-ERASE       E11F
-ERASE1      E142
-YESNO       E152
-TYPE        E15D
-TYPE1       E174
-TYPE2       E177
-TYPE3       E187
-TYPE4       E1A0
-TYPE5       E1A7
-SAVE        E1AD
-SAVE1       E1D4
-SAVE2       E1F1
-SAVE3       E1FB
-SAVE4       E201
-NOSPACE     E207
-RENAME      E210
-RENAME1     E23F
-RENAME2     E259
-RENAME3     E25E
-RENAME4     E26D
-RENAME5     E273
-RENAME6     E279
-EXISTS      E282
-USER        E28E
-UNKNOWN     E2A5
-UNKWN1      E2C4
-UNKWN2      E2CD
-UNKWN3      E2E1
-UNKWN4      E301
-UNKWN5      E330
-UNKWN6      E33E
-UNKWN7      E343
-UNKWN8      E34F
-UNKWN9      E36B
-UNKWN0      E371
-BADLOAD     E37A
-COMFILE     E383
-GETBACK     E386
-GETBACK1    E389
-CCPSTACK    E3AB
-BATCH       E3AB
-BATCHFCB    E3AC
-FCB         E3CD
-RTNCODE     E3EE
-CDRIVE      E3EF
-CHGDRV      E3F0
-NBYTES      E3F1
-PATTRN2     E400
-FBASE       E406
-BADSCTR     E409
-BADSLCT     E40B
-RODISK      E40D
-ROFILE      E40F
-FBASE1      E411
-NFUNCTS     0029
-FUNCTNS     E447
-ERROR1      E499
-ERROR2      E4A5
-ERROR3      E4AB
-ERROR4      E4B1
-ERROR5      E4B4
-BDOSERR     E4BA
-BDOSDRV     E4C6
-BADSEC      E4CA
-BADSEL      E4D5
-FILERO      E4DC
-DISKRO      E4E1
-PRTERR      E4E5
-GETCHAR     E4FB
-GETECHO     E506
-CHKCHAR     E514
-CKCONSOL    E523
-CKCON1      E542
-CKCON2      E545
-OUTCHAR     E548
-OUTCHR1     E562
-OUTCHR2     E579
-SHOWIT      E57F
-OUTCON      E590
-OUTCON1     E596
-BACKUP      E5A4
-BACKUP1     E5AC
-NEWLINE     E5B1
-NEWLN1      E5B9
-OUTCRLF     E5C9
-PRTMESG     E5D3
-RDBUFF      E5E1
-RDBUF1      E5EF
-RDBUF2      E5F1
-RDBUF3      E616
-RDBUF4      E626
-RDBUF5      E637
-RDBUF6      E648
-RDBUF7      E64E
-RDBUF8      E65F
-RDBUF9      E66B
-RDBUF10     E670
-RDBUF11     E678
-RDBUF12     E68A
-RDBUF13     E699
-RDBUF14     E6A6
-RDBUF15     E6A9
-RDBUF16     E6BD
-RDBUF17     E6C1
-GETCON      E6C8
-GETRDR      E6CE
-DIRCIO      E6D4
-DIRC1       E6E0
-GETIOB      E6ED
-SETIOB      E6F3
-PRTSTR      E6F8
-GETCSTS     E6FE
-SETSTAT     E701
-RTN         E704
-IOERR1      E705
-OUTFLAG     E70A
-STARTING    E70B
-CURPOS      E70C
-PRTFLAG     E70D
-CHARBUF     E70E
-USRSTACK    E70F
-STKAREA     E741
-USERNO      E741
-ACTIVE      E742
-PARAMS      E743
-STATUS      E745
-SLCTERR     E747
-JUMPHL      E74A
-DE2HL       E74F
-DE2HL1      E750
-SELECT      E759
-SELECT1     E79F
-HOMEDRV     E7A3
-DOREAD      E7B4
-DOWRITE     E7BA
-IORET       E7BD
-TRKSEC      E7C5
-TRKSEC1     E7D3
-TRKSEC2     E7E6
-TRKSEC3     E7FC
-TRKSEC4     E811
-GETBLOCK    E840
-GETBLK1     E847
-GETBLK2     E855
-GETBLK3     E85E
-EXTBLK      E860
-EXTBLK1     E873
-COMBLK      E879
-CHKBLK      E886
-LOGICAL     E88C
-LOGICL1     E892
-SETEXT      E8A8
-SETHLDE     E8B0
-STRDATA     E8BD
-SETNREC     E8D4
-STNREC1     E8E0
-SHIFTR      E8EC
-SHIFTR1     E8ED
-CHECKSUM    E8F9
-CHKSUM1     E8FF
-SHIFTL      E906
-SHIFTL1     E907
-SETBIT      E90D
-GETWPRT     E920
-WRTPRTD     E92E
-CHKROFL     E946
-CKROF1      E949
-CHKWPRT     E956
-FCB2HL      E960
-ADDA2HL     E966
-GETS2       E96B
-CLEARS2     E974
-SETS2B7     E97A
-MOREFLS     E981
-CHKNMBR     E98E
-SUBHL       E997
-SETDIR      E99E
-CHECKDIR    E9A0
-CHKDIR1     E9C6
-DIRWRITE    E9C8
-DIRREAD     E9D6
-DEFDMA      E9DC
-DIRDMA      E9E2
-DIRDMA1     E9E5
-MOVEDIR     E9EB
-CKFILPOS    E9F7
-STFILPOS    EA00
-NXENTRY     EA07
-NXENT1      EA1B
-NXENT2      EA22
-CKBITMAP    EA37
-CKBMAP1     EA58
-STBITMAP    EA5E
-STBMAP1     EA66
-SETFILE     EA6D
-SETFL1      EA77
-SETFL2      EA8A
-SETFL3      EA90
-SETFL4      EA9F
-BITMAP      EAA5
-BITMAP1     EAB3
-BITMAP2     EAD4
-BITMAP3     EAF8
-STSTATUS    EB03
-SAMEXT      EB09
-FINDFST     EB1A
-FINDNXT     EB2F
-FNDNXT1     EB4C
-FNDNXT2     EB55
-FNDNXT3     EB75
-FNDNXT4     EB7E
-FNDNXT5     EB85
-FNDNXT6     EB96
-ERAFILE     EB9E
-ERAFIL1     EBA6
-FNDSPACE    EBC0
-FNDSPA1     EBC2
-FNDSPA2     EBD3
-FNDSPA3     EBEE
-FNDSPA4     EBF6
-FCBSET      EBFF
-UPDATE      EC03
-UPDATE1     EC12
-CHGNAMES    EC18
-CHGNAM1     EC29
-SAVEATTR    EC3D
-SAVATR1     EC42
-OPENIT      EC53
-OPENIT1     EC5C
-OPENIT2     EC8D
-MOVEWORD    EC96
-CLOSEIT     ECA4
-CLOSEIT1    ECCF
-CLOSEIT2    ECDD
-CLOSEIT3    ECE3
-CLOSEIT4    ECEA
-CLOSEIT5    ECFF
-CLOSEIT6    ED19
-CLOSEIT7    ED21
-GETEMPTY    ED26
-GETMT1      ED48
-GETNEXT     ED5C
-GTNEXT1     ED85
-GTNEXT2     ED90
-GTNEXT3     EDAE
-GTNEXT4     EDB1
-GTNEXT5     EDB8
-RDSEQ       EDBE
-RDSEQ1      EDC3
-RDSEQ2      EDE8
-RDSEQ3      EDFD
-WTSEQ       EE00
-WTSEQ1      EE05
-WTSEQ2      EE3D
-WTSEQ3      EE4A
-WTSEQ4      EE66
-WTSEQ5      EE6E
-WTSEQ6      EE70
-WTSEQ7      EE8E
-WTSEQ8      EE9C
-WTSEQ9      EEBD
-WTSEQ10     EED4
-WTSEQ99     EEE1
-WTSEQ11     EF00
-WTSEQ12     EF02
-POSITION    EF05
-POSITN1     EF09
-POSITN2     EF49
-POSITN3     EF81
-POSITN4     EF86
-POSITN5     EF8D
-READRAN     EF95
-WRITERAN    EF9E
-COMPRAND    EFA7
-RANSIZE     EFD4
-RANSIZ1     EFE6
-RANSIZ2     F008
-RANSIZ3     F00E
-SETRAN      F010
-LOGINDRV    F023
-SETDSK      F047
-AUTOSEL     F053
-AUTOSL1     F077
-GETVER      F080
-RSTDSK      F085
-OPENFIL     F09E
-CLOSEFIL    F0A7
-GETFST      F0AD
-GETFST1     F0C4
-GETNXT      F0CA
-DELFILE     F0D9
-READSEQ     F0E2
-WRTSEQ      F0E8
-FCREATE     F0EE
-RENFILE     F0F7
-GETLOG      F100
-GETCRNT     F106
-PUTDMA      F10C
-GETALOC     F113
-GETROV      F119
-SETATTR     F11F
-GETPARM     F128
-GETPRM1     F12B
-GETUSER     F12F
-SETUSER     F13D
-RDRANDOM    F143
-WTRANDOM    F149
-FILESIZE    F14F
-LOGOFF      F155
-GOBACK      F176
-GOBACK1     F193
-WTSPECL     F19D
-EMPTYFCB    F1AE
-WRTPRT      F1AF
-LOGIN       F1B1
-USERDMA     F1B3
-SCRATCH1    F1B5
-SCRATCH2    F1B7
-SCRATCH3    F1B9
-DIRBUF      F1BB
-DISKPB      F1BD
-CHKVECT     F1BF
-ALOCVECT    F1C1
-SECTORS     F1C3
-BLKSHFT     F1C5
-BLKMASK     F1C6
-EXTMASK     F1C7
-DSKSIZE     F1C8
-DIRSIZE     F1CA
-ALLOC0      F1CC
-ALLOC1      F1CE
-OFFSET      F1D0
-XLATE       F1D2
-CLOSEFLG    F1D4
-RDWRTFLG    F1D5
-FNDSTAT     F1D6
-MODE        F1D7
-EPARAM      F1D8
-RELBLOCK    F1D9
-COUNTER     F1DA
-SAVEFCB     F1DB
-BIGDISK     F1DF
-AUTO        F1E0
-OLDDRV      F1E1
-AUTOFLAG    F1E2
-SAVNXT      F1E3
-SAVEXT      F1E4
-SAVNREC     F1E5
-BLKNMBR     F1E7
-LOGSECT     F1E9
-FCBPOS      F1EB
-FILEPOS     F1EC
-CKSUMTBL    F1EE
-BOOT        F200
-WBOOT       F203
-CONST       F206
-CONIN       F209
-CONOUT      F20C
-LIST        F20F
-PUNCH       F212
-READER      F215
-HOME        F218
-SELDSK      F21B
-SETTRK      F21E
-SETSEC      F221
-SETDMA      F224
-READ        F227
-WRITE       F22A
-PRSTAT      F22D
-SECTRN      F230
+MEM:                003E DEFINED AT LINE 14
+                    > USED AT LINE 42
+IOBYTE:             0003 DEFINED AT LINE 16
+                    > USED AT LINE 1652
+                    > USED AT LINE 1657
+TDRIVE:             0004 DEFINED AT LINE 17
+                    > USED AT LINE 215
+                    > USED AT LINE 221
+ENTRY:              0005 DEFINED AT LINE 18
+                    > USED AT LINE 67
+                    > USED AT LINE 107
+                    > USED AT LINE 113
+                    > USED AT LINE 118
+                    > USED AT LINE 159
+                    > USED AT LINE 164
+                    > USED AT LINE 194
+                    > USED AT LINE 204
+                    > USED AT LINE 298
+                    > USED AT LINE 323
+                    > USED AT LINE 327
+                    > USED AT LINE 334
+                    > USED AT LINE 343
+TFCB:               005C DEFINED AT LINE 19
+                    > USED AT LINE 1144
+TBUFF:              0080 DEFINED AT LINE 20
+                    > USED AT LINE 263
+                    > USED AT LINE 338
+                    > USED AT LINE 641
+                    > USED AT LINE 753
+                    > USED AT LINE 926
+                    > USED AT LINE 1160
+                    > USED AT LINE 1170
+                    > USED AT LINE 3441
+TBASE:              0100 DEFINED AT LINE 21
+                    > USED AT LINE 967
+                    > USED AT LINE 1108
+                    > USED AT LINE 1174
+CNTRLC:             0003 DEFINED AT LINE 25
+                    > USED AT LINE 1297
+                    > USED AT LINE 1382
+                    > USED AT LINE 1612
+CNTRLE:             0005 DEFINED AT LINE 26
+                    > USED AT LINE 1535
+BS:                 0008 DEFINED AT LINE 27
+                    > USED AT LINE 1362
+                    > USED AT LINE 1420
+                    > USED AT LINE 1462
+                    > USED AT LINE 1517
+TAB:                0009 DEFINED AT LINE 28
+                    > USED AT LINE 1360
+                    > USED AT LINE 1446
+LF:                 000A DEFINED AT LINE 29
+                    > USED AT LINE 81
+                    > USED AT LINE 1358
+                    > USED AT LINE 1424
+                    > USED AT LINE 1483
+                    > USED AT LINE 1515
+FF:                 000C DEFINED AT LINE 30
+CR:                 000D DEFINED AT LINE 31
+                    > USED AT LINE 79
+                    > USED AT LINE 1356
+                    > USED AT LINE 1481
+                    > USED AT LINE 1513
+                    > USED AT LINE 1621
+CNTRLP:             0010 DEFINED AT LINE 32
+                    > USED AT LINE 1543
+CNTRLR:             0012 DEFINED AT LINE 33
+                    > USED AT LINE 1567
+CNTRLS:             0013 DEFINED AT LINE 34
+                    > USED AT LINE 1379
+CNTRLU:             0015 DEFINED AT LINE 35
+                    > USED AT LINE 1562
+CNTRLX:             0018 DEFINED AT LINE 36
+                    > USED AT LINE 1552
+CNTRLZ:             001A DEFINED AT LINE 37
+                    > USED AT LINE 929
+DEL:                007F DEFINED AT LINE 38
+                    > USED AT LINE 1410
+                    > USED AT LINE 1526
+CBASE:              DC00 DEFINED AT LINE 44
+                    > USED AT LINE 675
+                    > USED AT LINE 676
+                    > USED AT LINE 1118
+INBUFF:             DC06 DEFINED AT LINE 51
+                    > USED AT LINE 59
+                    > USED AT LINE 262
+                    > USED AT LINE 279
+                    > USED AT LINE 297
+                    > USED AT LINE 303
+                    > USED AT LINE 315
+                    > USED AT LINE 598
+                    > USED AT LINE 624
+                    > USED AT LINE 884
+                    > USED AT LINE 1148
+INPOINT:            DC88 DEFINED AT LINE 59
+                    > USED AT LINE 316
+                    > USED AT LINE 451
+                    > USED AT LINE 530
+                    > USED AT LINE 892
+                    > USED AT LINE 1016
+                    > USED AT LINE 1025
+NAMEPNT:            DC8A DEFINED AT LINE 60
+                    > USED AT LINE 377
+                    > USED AT LINE 455
+PRINT:              DC8C DEFINED AT LINE 65
+                    > USED AT LINE 72
+                    > USED AT LINE 100
+                    > USED AT LINE 384
+                    > USED AT LINE 389
+                    > USED AT LINE 634
+                    > USED AT LINE 636
+                    > USED AT LINE 931
+PRINTB:             DC92 DEFINED AT LINE 71
+                    > USED AT LINE 80
+                    > USED AT LINE 82
+                    > USED AT LINE 87
+                    > USED AT LINE 831
+                    > USED AT LINE 833
+                    > USED AT LINE 837
+                    > USED AT LINE 855
+CRLF:               DC98 DEFINED AT LINE 79
+                    > USED AT LINE 93
+                    > USED AT LINE 376
+                    > USED AT LINE 390
+                    > USED AT LINE 631
+                    > USED AT LINE 826
+                    > USED AT LINE 912
+                    > USED AT LINE 1171
+SPACE:              DCA2 DEFINED AT LINE 86
+                    > USED AT LINE 835
+                    > USED AT LINE 838
+                    > USED AT LINE 862
+PLINE:              DCA7 DEFINED AT LINE 92
+                    > USED AT LINE 682
+                    > USED AT LINE 688
+                    > USED AT LINE 882
+                    > USED AT LINE 994
+                    > USED AT LINE 1053
+                    > USED AT LINE 1188
+PLINE2:             DCAC DEFINED AT LINE 95
+                    > USED AT LINE 102
+                    > USED AT LINE 280
+RESDSK:             DCB8 DEFINED AT LINE 106
+                    > USED AT LINE 617
+DSKSEL:             DCBD DEFINED AT LINE 111
+                    > USED AT LINE 249
+                    > USED AT LINE 275
+                    > USED AT LINE 353
+                    > USED AT LINE 357
+                    > USED AT LINE 623
+                    > USED AT LINE 772
+                    > USED AT LINE 785
+                    > USED AT LINE 1089
+                    > USED AT LINE 1180
+ENTRY1:             DCC3 DEFINED AT LINE 118
+                    > USED AT LINE 126
+                    > USED AT LINE 138
+                    > USED AT LINE 144
+                    > USED AT LINE 149
+                    > USED AT LINE 188
+OPEN:               DCCB DEFINED AT LINE 125
+                    > USED AT LINE 133
+                    > USED AT LINE 251
+OPENFCB:            DCD0 DEFINED AT LINE 130
+                    > USED AT LINE 910
+                    > USED AT LINE 1103
+CLOSE:              DCDA DEFINED AT LINE 137
+                    > USED AT LINE 271
+                    > USED AT LINE 987
+SRCHFST:            DCDF DEFINED AT LINE 143
+                    > USED AT LINE 154
+SRCHNXT:            DCE4 DEFINED AT LINE 148
+                    > USED AT LINE 867
+SRCHFCB:            DCE9 DEFINED AT LINE 153
+                    > USED AT LINE 806
+                    > USED AT LINE 1010
+                    > USED AT LINE 1040
+DELETE:             DCEF DEFINED AT LINE 158
+                    > USED AT LINE 355
+                    > USED AT LINE 895
+                    > USED AT LINE 957
+ENTRY2:             DCF4 DEFINED AT LINE 164
+                    > USED AT LINE 172
+                    > USED AT LINE 183
+RDREC:              DCF9 DEFINED AT LINE 171
+                    > USED AT LINE 177
+                    > USED AT LINE 257
+                    > USED AT LINE 1113
+READFCB:            DCFE DEFINED AT LINE 176
+                    > USED AT LINE 920
+WRTREC:             DD04 DEFINED AT LINE 182
+                    > USED AT LINE 978
+CREATE:             DD09 DEFINED AT LINE 187
+                    > USED AT LINE 959
+RENAM:              DD0E DEFINED AT LINE 193
+                    > USED AT LINE 1043
+GETUSR:             DD13 DEFINED AT LINE 198
+                    > USED AT LINE 208
+GETSETUC:           DD15 DEFINED AT LINE 203
+                    > USED AT LINE 616
+                    > USED AT LINE 1070
+SETCDRV:            DD1A DEFINED AT LINE 208
+                    > USED AT LINE 295
+                    > USED AT LINE 1173
+MOVECD:             DD29 DEFINED AT LINE 220
+                    > USED AT LINE 299
+                    > USED AT LINE 1088
+                    > USED AT LINE 1179
+UPPER:              DD30 DEFINED AT LINE 227
+                    > USED AT LINE 310
+GETINP:             DD39 DEFINED AT LINE 238
+                    > USED AT LINE 637
+                    > USED AT LINE 883
+GETINP1:            DD96 DEFINED AT LINE 294
+                    > USED AT LINE 240
+                    > USED AT LINE 252
+                    > USED AT LINE 258
+                    > USED AT LINE 272
+GETINP2:            DDA7 DEFINED AT LINE 303
+                    > USED AT LINE 282
+GETINP3:            DDAB DEFINED AT LINE 305
+                    > USED AT LINE 313
+GETINP4:            DDBA DEFINED AT LINE 314
+                    > USED AT LINE 308
+CHKCON:             DDC2 DEFINED AT LINE 322
+                    > USED AT LINE 281
+                    > USED AT LINE 865
+                    > USED AT LINE 932
+GETDSK:             DDD0 DEFINED AT LINE 333
+                    > USED AT LINE 632
+                    > USED AT LINE 643
+                    > USED AT LINE 828
+STDDMA:             DDD5 DEFINED AT LINE 338
+                    > USED AT LINE 995
+                    > USED AT LINE 1172
+DMASET:             DDD8 DEFINED AT LINE 342
+                    > USED AT LINE 642
+                    > USED AT LINE 976
+                    > USED AT LINE 1111
+DELBATCH:           DDDD DEFINED AT LINE 347
+                    > USED AT LINE 288
+                    > USED AT LINE 294
+                    > USED AT LINE 391
+VERIFY:             DDF5 DEFINED AT LINE 362
+                    > USED AT LINE 1079
+VERIFY1:            DDFD DEFINED AT LINE 365
+                    > USED AT LINE 371
+SYNERR:             DE09 DEFINED AT LINE 376
+                    > USED AT LINE 401
+                    > USED AT LINE 646
+                    > USED AT LINE 699
+                    > USED AT LINE 708
+                    > USED AT LINE 712
+                    > USED AT LINE 718
+                    > USED AT LINE 720
+                    > USED AT LINE 722
+                    > USED AT LINE 729
+                    > USED AT LINE 908
+                    > USED AT LINE 942
+                    > USED AT LINE 953
+                    > USED AT LINE 1006
+                    > USED AT LINE 1051
+                    > USED AT LINE 1065
+                    > USED AT LINE 1069
+                    > USED AT LINE 1097
+                    > USED AT LINE 1186
+                    > USED AT LINE 1203
+SYNERR1:            DE0F DEFINED AT LINE 378
+                    > USED AT LINE 387
+SYNERR2:            DE22 DEFINED AT LINE 388
+                    > USED AT LINE 380
+                    > USED AT LINE 382
+CHECK:              DE30 DEFINED AT LINE 397
+                    > USED AT LINE 479
+                    > USED AT LINE 490
+                    > USED AT LINE 505
+                    > USED AT LINE 516
+NONBLANK:           DE4F DEFINED AT LINE 421
+                    > USED AT LINE 427
+                    > USED AT LINE 453
+                    > USED AT LINE 1018
+ADDHL:              DE59 DEFINED AT LINE 431
+                    > USED AT LINE 446
+                    > USED AT LINE 755
+                    > USED AT LINE 927
+CONVFST:            DE5E DEFINED AT LINE 439
+                    > USED AT LINE 645
+                    > USED AT LINE 696
+                    > USED AT LINE 793
+                    > USED AT LINE 878
+                    > USED AT LINE 907
+                    > USED AT LINE 952
+                    > USED AT LINE 1005
+                    > USED AT LINE 1026
+                    > USED AT LINE 1132
+                    > USED AT LINE 1198
+CONVERT:            DE60 DEFINED AT LINE 445
+                    > USED AT LINE 1138
+CONVRT1:            DE89 DEFINED AT LINE 468
+                    > USED AT LINE 460
+CONVRT2:            DE90 DEFINED AT LINE 471
+                    > USED AT LINE 466
+CONVRT3:            DE96 DEFINED AT LINE 478
+                    > USED AT LINE 470
+CONVRT4:            DE98 DEFINED AT LINE 479
+                    > USED AT LINE 489
+CONVRT5:            DEA9 DEFINED AT LINE 486
+                    > USED AT LINE 483
+CONVRT6:            DEAB DEFINED AT LINE 488
+                    > USED AT LINE 485
+CONVRT7:            DEAF DEFINED AT LINE 490
+                    > USED AT LINE 493
+CONVRT8:            DEB9 DEFINED AT LINE 494
+                    > USED AT LINE 480
+                    > USED AT LINE 497
+GETEXT:             DEC0 DEFINED AT LINE 501
+                    > USED AT LINE 491
+GETEXT1:            DEC8 DEFINED AT LINE 505
+                    > USED AT LINE 515
+GETEXT2:            DED9 DEFINED AT LINE 512
+                    > USED AT LINE 509
+GETEXT3:            DEDB DEFINED AT LINE 514
+                    > USED AT LINE 511
+GETEXT4:            DEDF DEFINED AT LINE 516
+                    > USED AT LINE 519
+GETEXT5:            DEE9 DEFINED AT LINE 520
+                    > USED AT LINE 503
+                    > USED AT LINE 506
+                    > USED AT LINE 523
+GETEXT6:            DEF0 DEFINED AT LINE 524
+                    > USED AT LINE 517
+GETEXT7:            DEF2 DEFINED AT LINE 525
+                    > USED AT LINE 528
+GETEXT8:            DF01 DEFINED AT LINE 537
+                    > USED AT LINE 543
+GETEXT9:            DF09 DEFINED AT LINE 542
+                    > USED AT LINE 540
+NUMCMDS:            0006 DEFINED AT LINE 550
+                    > USED AT LINE 572
+CMDTBL:             DF10 DEFINED AT LINE 551
+                    > USED AT LINE 569
+PATTRN1:            DF28 DEFINED AT LINE 561
+                    > USED AT LINE 362
+SEARCH:             DF2E DEFINED AT LINE 569
+                    > USED AT LINE 650
+SEARCH1:            DF33 DEFINED AT LINE 571
+                    > USED AT LINE 592
+SEARCH2:            DF3C DEFINED AT LINE 576
+                    > USED AT LINE 582
+SEARCH3:            DF4F DEFINED AT LINE 588
+                    > USED AT LINE 578
+                    > USED AT LINE 590
+SEARCH4:            DF54 DEFINED AT LINE 591
+                    > USED AT LINE 585
+CLEARBUF:           DF58 DEFINED AT LINE 597
+                    > USED AT LINE 45
+COMMAND:            DF5C DEFINED AT LINE 607
+                    > USED AT LINE 44
+CMMND1:             DF82 DEFINED AT LINE 630
+                    > USED AT LINE 289
+                    > USED AT LINE 392
+                    > USED AT LINE 886
+                    > USED AT LINE 890
+                    > USED AT LINE 1181
+                    > USED AT LINE 1204
+CMMND2:             DF98 DEFINED AT LINE 641
+                    > USED AT LINE 626
+CMDADR:             DFC1 DEFINED AT LINE 669
+                    > USED AT LINE 656
+HALT:               DFCF DEFINED AT LINE 674
+                    > USED AT LINE 367
+RDERROR:            DFD9 DEFINED AT LINE 681
+                    > USED AT LINE 940
+RDERR:              DFDF DEFINED AT LINE 683
+                    > USED AT LINE 681
+NONE:               DFEA DEFINED AT LINE 687
+                    > USED AT LINE 807
+                    > USED AT LINE 897
+                    > USED AT LINE 1048
+NOFILE:             DFF0 DEFINED AT LINE 689
+                    > USED AT LINE 687
+DECODE:             DFF8 DEFINED AT LINE 696
+                    > USED AT LINE 950
+                    > USED AT LINE 1063
+DECODE1:            E008 DEFINED AT LINE 702
+                    > USED AT LINE 725
+DECODE2:            E02A DEFINED AT LINE 722
+DECODE3:            E033 DEFINED AT LINE 727
+                    > USED AT LINE 704
+                    > USED AT LINE 732
+DECODE4:            E03A DEFINED AT LINE 731
+MOVE3:              E040 DEFINED AT LINE 739
+                    > USED AT LINE 1102
+HL2DE:              E042 DEFINED AT LINE 743
+                    > USED AT LINE 265
+                    > USED AT LINE 748
+                    > USED AT LINE 1015
+                    > USED AT LINE 1147
+EXTRACT:            E04B DEFINED AT LINE 753
+                    > USED AT LINE 816
+                    > USED AT LINE 841
+                    > USED AT LINE 850
+DSELECT:            E054 DEFINED AT LINE 763
+                    > USED AT LINE 794
+                    > USED AT LINE 893
+                    > USED AT LINE 909
+                    > USED AT LINE 954
+                    > USED AT LINE 1009
+                    > USED AT LINE 1099
+RESETDR:            E066 DEFINED AT LINE 777
+                    > USED AT LINE 941
+                    > USED AT LINE 1050
+                    > USED AT LINE 1131
+                    > USED AT LINE 1185
+                    > USED AT LINE 1197
+DIRECT:             E077 DEFINED AT LINE 793
+                    > USED AT LINE 669
+DIRECT1:            E088 DEFINED AT LINE 800
+                    > USED AT LINE 803
+DIRECT2:            E08F DEFINED AT LINE 804
+                    > USED AT LINE 798
+DIRECT3:            E098 DEFINED AT LINE 808
+                    > USED AT LINE 868
+DIRECT4:            E0CC DEFINED AT LINE 835
+                    > USED AT LINE 825
+DIRECT5:            E0D4 DEFINED AT LINE 838
+                    > USED AT LINE 834
+DIRECT6:            E0D9 DEFINED AT LINE 840
+                    > USED AT LINE 861
+                    > USED AT LINE 863
+DRECT63:            E0F7 DEFINED AT LINE 854
+                    > USED AT LINE 848
+DRECT65:            E0F9 DEFINED AT LINE 855
+                    > USED AT LINE 844
+DIRECT7:            E10E DEFINED AT LINE 864
+                    > USED AT LINE 853
+                    > USED AT LINE 859
+DIRECT8:            E10F DEFINED AT LINE 865
+                    > USED AT LINE 818
+DIRECT9:            E11B DEFINED AT LINE 869
+                    > USED AT LINE 808
+                    > USED AT LINE 866
+ERASE:              E11F DEFINED AT LINE 878
+                    > USED AT LINE 669
+ERASE1:             E142 DEFINED AT LINE 893
+                    > USED AT LINE 880
+YESNO:              E152 DEFINED AT LINE 899
+                    > USED AT LINE 881
+TYPE:               E15D DEFINED AT LINE 907
+TYPE1:              E174 DEFINED AT LINE 915
+                    > USED AT LINE 934
+TYPE2:              E177 DEFINED AT LINE 916
+TYPE3:              E187 DEFINED AT LINE 925
+                    > USED AT LINE 918
+TYPE4:              E1A0 DEFINED AT LINE 938
+                    > USED AT LINE 922
+TYPE5:              E1A7 DEFINED AT LINE 941
+                    > USED AT LINE 911
+SAVE:               E1AD DEFINED AT LINE 950
+SAVE1:              E1D4 DEFINED AT LINE 968
+                    > USED AT LINE 982
+SAVE2:              E1F1 DEFINED AT LINE 986
+                    > USED AT LINE 970
+SAVE3:              E1FB DEFINED AT LINE 993
+                    > USED AT LINE 960
+                    > USED AT LINE 981
+SAVE4:              E201 DEFINED AT LINE 995
+                    > USED AT LINE 989
+NOSPACE:            E207 DEFINED AT LINE 997
+                    > USED AT LINE 993
+RENAME:             E210 DEFINED AT LINE 1005
+                    > USED AT LINE 670
+RENAME1:            E23F DEFINED AT LINE 1023
+                    > USED AT LINE 1020
+RENAME2:            E259 DEFINED AT LINE 1037
+                    > USED AT LINE 1033
+RENAME3:            E25E DEFINED AT LINE 1040
+RENAME4:            E26D DEFINED AT LINE 1048
+                    > USED AT LINE 1041
+RENAME5:            E273 DEFINED AT LINE 1050
+                    > USED AT LINE 1022
+                    > USED AT LINE 1027
+                    > USED AT LINE 1036
+RENAME6:            E279 DEFINED AT LINE 1052
+                    > USED AT LINE 1011
+EXISTS:             E282 DEFINED AT LINE 1055
+                    > USED AT LINE 1052
+USER:               E28E DEFINED AT LINE 1063
+                    > USED AT LINE 670
+UNKNOWN:            E2A5 DEFINED AT LINE 1079
+                    > USED AT LINE 649
+UNKWN1:             E2C4 DEFINED AT LINE 1094
+                    > USED AT LINE 1082
+UNKWN2:             E2CD DEFINED AT LINE 1098
+UNKWN3:             E2E1 DEFINED AT LINE 1109
+                    > USED AT LINE 1124
+UNKWN4:             E301 DEFINED AT LINE 1128
+                    > USED AT LINE 1114
+UNKWN5:             E330 DEFINED AT LINE 1149
+                    > USED AT LINE 1155
+UNKWN6:             E33E DEFINED AT LINE 1159
+                    > USED AT LINE 1151
+                    > USED AT LINE 1153
+UNKWN7:             E343 DEFINED AT LINE 1161
+                    > USED AT LINE 1168
+UNKWN8:             E34F DEFINED AT LINE 1169
+                    > USED AT LINE 1164
+UNKWN9:             E36B DEFINED AT LINE 1185
+                    > USED AT LINE 1104
+UNKWN0:             E371 DEFINED AT LINE 1187
+                    > USED AT LINE 1123
+                    > USED AT LINE 1130
+BADLOAD:            E37A DEFINED AT LINE 1190
+                    > USED AT LINE 1187
+COMFILE:            E383 DEFINED AT LINE 1191
+                    > USED AT LINE 1101
+GETBACK:            E386 DEFINED AT LINE 1197
+                    > USED AT LINE 870
+                    > USED AT LINE 898
+                    > USED AT LINE 930
+                    > USED AT LINE 933
+                    > USED AT LINE 939
+                    > USED AT LINE 996
+                    > USED AT LINE 1044
+                    > USED AT LINE 1049
+                    > USED AT LINE 1054
+                    > USED AT LINE 1189
+GETBACK1:           E389 DEFINED AT LINE 1198
+                    > USED AT LINE 1071
+                    > USED AT LINE 1085
+                    > USED AT LINE 1090
+CCPSTACK:           E3AB DEFINED AT LINE 1209
+                    > USED AT LINE 607
+                    > USED AT LINE 630
+BATCH:              E3AB DEFINED AT LINE 1213
+                    > USED AT LINE 238
+                    > USED AT LINE 347
+                    > USED AT LINE 618
+                    > USED AT LINE 1178
+BATCHFCB:           E3AC DEFINED AT LINE 1214
+                    > USED AT LINE 250
+                    > USED AT LINE 253
+                    > USED AT LINE 255
+                    > USED AT LINE 256
+                    > USED AT LINE 266
+                    > USED AT LINE 270
+                    > USED AT LINE 354
+FCB:                E3CD DEFINED AT LINE 1218
+                    > USED AT LINE 131
+                    > USED AT LINE 132
+                    > USED AT LINE 153
+                    > USED AT LINE 176
+                    > USED AT LINE 445
+                    > USED AT LINE 574
+                    > USED AT LINE 700
+                    > USED AT LINE 764
+                    > USED AT LINE 795
+                    > USED AT LINE 894
+                    > USED AT LINE 955
+                    > USED AT LINE 962
+                    > USED AT LINE 977
+                    > USED AT LINE 986
+                    > USED AT LINE 1012
+                    > USED AT LINE 1013
+                    > USED AT LINE 1039
+                    > USED AT LINE 1042
+                    > USED AT LINE 1067
+                    > USED AT LINE 1080
+                    > USED AT LINE 1094
+                    > USED AT LINE 1112
+                    > USED AT LINE 1136
+                    > USED AT LINE 1141
+                    > USED AT LINE 1143
+                    > USED AT LINE 1145
+                    > USED AT LINE 1199
+RTNCODE:            E3EE DEFINED AT LINE 1219
+                    > USED AT LINE 119
+                    > USED AT LINE 809
+CDRIVE:             E3EF DEFINED AT LINE 1220
+                    > USED AT LINE 213
+                    > USED AT LINE 220
+                    > USED AT LINE 246
+                    > USED AT LINE 273
+                    > USED AT LINE 356
+                    > USED AT LINE 468
+                    > USED AT LINE 622
+                    > USED AT LINE 644
+                    > USED AT LINE 769
+                    > USED AT LINE 781
+                    > USED AT LINE 784
+                    > USED AT LINE 1087
+CHGDRV:             E3F0 DEFINED AT LINE 1221
+                    > USED AT LINE 450
+                    > USED AT LINE 472
+                    > USED AT LINE 647
+                    > USED AT LINE 697
+                    > USED AT LINE 765
+                    > USED AT LINE 777
+                    > USED AT LINE 1007
+                    > USED AT LINE 1030
+                    > USED AT LINE 1083
+                    > USED AT LINE 1133
+                    > USED AT LINE 1201
+NBYTES:             E3F1 DEFINED AT LINE 1222
+                    > USED AT LINE 913
+                    > USED AT LINE 915
+PATTRN2:            E400 DEFINED AT LINE 1231
+                    > USED AT LINE 363
+FBASE:              E406 DEFINED AT LINE 1239
+BADSCTR:            E409 DEFINED AT LINE 1243
+                    > USED AT LINE 1797
+BADSLCT:            E40B DEFINED AT LINE 1244
+                    > USED AT LINE 1705
+RODISK:             E40D DEFINED AT LINE 1245
+                    > USED AT LINE 2118
+ROFILE:             E40F DEFINED AT LINE 1246
+                    > USED AT LINE 2111
+FBASE1:             E411 DEFINED AT LINE 1251
+                    > USED AT LINE 1239
+NFUNCTS:            0029 DEFINED AT LINE 1284
+                    > USED AT LINE 1267
+FUNCTNS:            E447 DEFINED AT LINE 1286
+                    > USED AT LINE 1270
+ERROR1:             E499 DEFINED AT LINE 1295
+                    > USED AT LINE 1243
+ERROR2:             E4A5 DEFINED AT LINE 1301
+                    > USED AT LINE 1244
+ERROR3:             E4AB DEFINED AT LINE 1304
+                    > USED AT LINE 1245
+ERROR4:             E4B1 DEFINED AT LINE 1307
+                    > USED AT LINE 1246
+ERROR5:             E4B4 DEFINED AT LINE 1309
+                    > USED AT LINE 1302
+                    > USED AT LINE 1305
+BDOSERR:            E4BA DEFINED AT LINE 1312
+                    > USED AT LINE 1326
+BDOSDRV:            E4C6 DEFINED AT LINE 1313
+                    > USED AT LINE 1325
+BADSEC:             E4CA DEFINED AT LINE 1314
+                    > USED AT LINE 1295
+BADSEL:             E4D5 DEFINED AT LINE 1315
+                    > USED AT LINE 1301
+FILERO:             E4DC DEFINED AT LINE 1316
+                    > USED AT LINE 1307
+DISKRO:             E4E1 DEFINED AT LINE 1317
+                    > USED AT LINE 1304
+PRTERR:             E4E5 DEFINED AT LINE 1321
+                    > USED AT LINE 1296
+                    > USED AT LINE 1309
+GETCHAR:            E4FB DEFINED AT LINE 1334
+                    > USED AT LINE 1343
+                    > USED AT LINE 1509
+GETECHO:            E506 DEFINED AT LINE 1343
+                    > USED AT LINE 1626
+CHKCHAR:            E514 DEFINED AT LINE 1356
+                    > USED AT LINE 1344
+                    > USED AT LINE 1433
+CKCONSOL:           E523 DEFINED AT LINE 1372
+                    > USED AT LINE 1398
+                    > USED AT LINE 1671
+CKCON1:             E542 DEFINED AT LINE 1386
+                    > USED AT LINE 1380
+CKCON2:             E545 DEFINED AT LINE 1387
+                    > USED AT LINE 1374
+OUTCHAR:            E548 DEFINED AT LINE 1394
+                    > USED AT LINE 1437
+                    > USED AT LINE 1447
+                    > USED AT LINE 1449
+                    > USED AT LINE 1469
+                    > USED AT LINE 1476
+                    > USED AT LINE 1482
+                    > USED AT LINE 1484
+                    > USED AT LINE 1622
+OUTCHR1:            E562 DEFINED AT LINE 1408
+                    > USED AT LINE 1396
+OUTCHR2:            E579 DEFINED AT LINE 1424
+                    > USED AT LINE 1421
+SHOWIT:             E57F DEFINED AT LINE 1432
+                    > USED AT LINE 1583
+                    > USED AT LINE 1608
+OUTCON:             E590 DEFINED AT LINE 1445
+                    > USED AT LINE 1348
+                    > USED AT LINE 1434
+                    > USED AT LINE 1494
+OUTCON1:            E596 DEFINED AT LINE 1448
+                    > USED AT LINE 1453
+BACKUP:             E5A4 DEFINED AT LINE 1459
+                    > USED AT LINE 1560
+                    > USED AT LINE 1594
+BACKUP1:            E5AC DEFINED AT LINE 1462
+                    > USED AT LINE 1459
+NEWLINE:            E5B1 DEFINED AT LINE 1468
+                    > USED AT LINE 1564
+                    > USED AT LINE 1570
+NEWLN1:             E5B9 DEFINED AT LINE 1471
+                    > USED AT LINE 1477
+OUTCRLF:            E5C9 DEFINED AT LINE 1481
+                    > USED AT LINE 1322
+                    > USED AT LINE 1470
+                    > USED AT LINE 1539
+PRTMESG:            E5D3 DEFINED AT LINE 1488
+                    > USED AT LINE 1327
+                    > USED AT LINE 1329
+                    > USED AT LINE 1496
+                    > USED AT LINE 1667
+RDBUFF:             E5E1 DEFINED AT LINE 1500
+                    > USED AT LINE 1558
+                    > USED AT LINE 1566
+RDBUF1:             E5EF DEFINED AT LINE 1507
+                    > USED AT LINE 1521
+                    > USED AT LINE 1530
+                    > USED AT LINE 1551
+                    > USED AT LINE 1618
+RDBUF2:             E5F1 DEFINED AT LINE 1509
+                    > USED AT LINE 1542
+                    > USED AT LINE 1590
+                    > USED AT LINE 1598
+RDBUF3:             E616 DEFINED AT LINE 1526
+                    > USED AT LINE 1518
+RDBUF4:             E626 DEFINED AT LINE 1535
+                    > USED AT LINE 1527
+RDBUF5:             E637 DEFINED AT LINE 1543
+                    > USED AT LINE 1536
+RDBUF6:             E648 DEFINED AT LINE 1552
+                    > USED AT LINE 1544
+RDBUF7:             E64E DEFINED AT LINE 1555
+                    > USED AT LINE 1561
+RDBUF8:             E65F DEFINED AT LINE 1562
+                    > USED AT LINE 1553
+RDBUF9:             E66B DEFINED AT LINE 1567
+                    > USED AT LINE 1563
+RDBUF10:            E670 DEFINED AT LINE 1569
+                    > USED AT LINE 1525
+RDBUF11:            E678 DEFINED AT LINE 1575
+                    > USED AT LINE 1586
+RDBUF12:            E68A DEFINED AT LINE 1587
+                    > USED AT LINE 1577
+RDBUF13:            E699 DEFINED AT LINE 1594
+                    > USED AT LINE 1597
+RDBUF14:            E6A6 DEFINED AT LINE 1602
+                    > USED AT LINE 1568
+RDBUF15:            E6A9 DEFINED AT LINE 1605
+                    > USED AT LINE 1534
+RDBUF16:            E6BD DEFINED AT LINE 1617
+                    > USED AT LINE 1614
+RDBUF17:            E6C1 DEFINED AT LINE 1619
+                    > USED AT LINE 1514
+                    > USED AT LINE 1516
+GETCON:             E6C8 DEFINED AT LINE 1626
+                    > USED AT LINE 1286
+GETRDR:             E6CE DEFINED AT LINE 1631
+DIRCIO:             E6D4 DEFINED AT LINE 1638
+DIRC1:              E6E0 DEFINED AT LINE 1644
+                    > USED AT LINE 1640
+GETIOB:             E6ED DEFINED AT LINE 1652
+SETIOB:             E6F3 DEFINED AT LINE 1657
+                    > USED AT LINE 1287
+PRTSTR:             E6F8 DEFINED AT LINE 1664
+                    > USED AT LINE 1287
+GETCSTS:            E6FE DEFINED AT LINE 1671
+SETSTAT:            E701 DEFINED AT LINE 1676
+                    > USED AT LINE 1627
+                    > USED AT LINE 1632
+                    > USED AT LINE 1648
+                    > USED AT LINE 1653
+                    > USED AT LINE 1682
+                    > USED AT LINE 2483
+                    > USED AT LINE 2584
+                    > USED AT LINE 2949
+                    > USED AT LINE 3020
+                    > USED AT LINE 3235
+                    > USED AT LINE 3432
+                    > USED AT LINE 3520
+                    > USED AT LINE 3559
+RTN:                E704 DEFINED AT LINE 1677
+                    > USED AT LINE 1291
+IOERR1:             E705 DEFINED AT LINE 1681
+                    > USED AT LINE 2954
+                    > USED AT LINE 2986
+                    > USED AT LINE 3000
+OUTFLAG:            E70A DEFINED AT LINE 1684
+                    > USED AT LINE 1394
+                    > USED AT LINE 1524
+                    > USED AT LINE 1588
+                    > USED AT LINE 1593
+                    > USED AT LINE 1595
+STARTING:           E70B DEFINED AT LINE 1685
+                    > USED AT LINE 1472
+                    > USED AT LINE 1501
+                    > USED AT LINE 1541
+                    > USED AT LINE 1555
+CURPOS:             E70C DEFINED AT LINE 1686
+                    > USED AT LINE 1409
+                    > USED AT LINE 1450
+                    > USED AT LINE 1471
+                    > USED AT LINE 1500
+                    > USED AT LINE 1523
+                    > USED AT LINE 1556
+                    > USED AT LINE 1591
+PRTFLAG:            E70D DEFINED AT LINE 1687
+                    > USED AT LINE 1404
+                    > USED AT LINE 1546
+CHARBUF:            E70E DEFINED AT LINE 1688
+                    > USED AT LINE 1334
+                    > USED AT LINE 1372
+                    > USED AT LINE 1386
+USRSTACK:           E70F DEFINED AT LINE 1692
+                    > USED AT LINE 1259
+                    > USED AT LINE 3623
+STKAREA:            E741 DEFINED AT LINE 1696
+                    > USED AT LINE 1260
+USERNO:             E741 DEFINED AT LINE 1698
+                    > USED AT LINE 2466
+                    > USED AT LINE 3423
+                    > USED AT LINE 3558
+                    > USED AT LINE 3561
+ACTIVE:             E742 DEFINED AT LINE 1699
+                    > USED AT LINE 1323
+                    > USED AT LINE 1728
+                    > USED AT LINE 2062
+                    > USED AT LINE 2079
+                    > USED AT LINE 3376
+                    > USED AT LINE 3397
+                    > USED AT LINE 3416
+                    > USED AT LINE 3440
+                    > USED AT LINE 3519
+PARAMS:             E743 DEFINED AT LINE 1700
+                    > USED AT LINE 1252
+                    > USED AT LINE 1278
+                    > USED AT LINE 1502
+                    > USED AT LINE 1920
+                    > USED AT LINE 1976
+                    > USED AT LINE 1984
+                    > USED AT LINE 2138
+                    > USED AT LINE 2513
+                    > USED AT LINE 2693
+                    > USED AT LINE 2709
+                    > USED AT LINE 2750
+                    > USED AT LINE 2772
+                    > USED AT LINE 2817
+                    > USED AT LINE 2877
+                    > USED AT LINE 2880
+                    > USED AT LINE 2885
+                    > USED AT LINE 2911
+                    > USED AT LINE 2995
+                    > USED AT LINE 3023
+                    > USED AT LINE 3156
+                    > USED AT LINE 3320
+                    > USED AT LINE 3359
+                    > USED AT LINE 3409
+                    > USED AT LINE 3424
+                    > USED AT LINE 3478
+                    > USED AT LINE 3585
+                    > USED AT LINE 3614
+STATUS:             E745 DEFINED AT LINE 1701
+                    > USED AT LINE 1257
+                    > USED AT LINE 1676
+                    > USED AT LINE 2474
+                    > USED AT LINE 2571
+                    > USED AT LINE 2801
+                    > USED AT LINE 2869
+                    > USED AT LINE 2973
+                    > USED AT LINE 3041
+                    > USED AT LINE 3125
+                    > USED AT LINE 3207
+                    > USED AT LINE 3217
+                    > USED AT LINE 3227
+                    > USED AT LINE 3248
+                    > USED AT LINE 3548
+                    > USED AT LINE 3625
+SLCTERR:            E747 DEFINED AT LINE 1705
+                    > USED AT LINE 3383
+JUMPHL:             E74A DEFINED AT LINE 1709
+                    > USED AT LINE 1798
+                    > USED AT LINE 2112
+                    > USED AT LINE 2119
+DE2HL:              E74F DEFINED AT LINE 1717
+                    > USED AT LINE 1756
+                    > USED AT LINE 1761
+                    > USED AT LINE 2261
+                    > USED AT LINE 2698
+                    > USED AT LINE 2753
+DE2HL1:             E750 DEFINED AT LINE 1718
+                    > USED AT LINE 1724
+SELECT:             E759 DEFINED AT LINE 1728
+                    > USED AT LINE 3381
+SELECT1:            E79F DEFINED AT LINE 1769
+                    > USED AT LINE 1767
+HOMEDRV:            E7A3 DEFINED AT LINE 1775
+                    > USED AT LINE 2452
+                    > USED AT LINE 2516
+DOREAD:             E7B4 DEFINED AT LINE 1789
+                    > USED AT LINE 2236
+                    > USED AT LINE 2981
+DOWRITE:            E7BA DEFINED AT LINE 1794
+                    > USED AT LINE 2230
+                    > USED AT LINE 3075
+                    > USED AT LINE 3094
+IORET:              E7BD DEFINED AT LINE 1795
+                    > USED AT LINE 1790
+TRKSEC:             E7C5 DEFINED AT LINE 1803
+                    > USED AT LINE 2305
+                    > USED AT LINE 2699
+TRKSEC1:            E7D3 DEFINED AT LINE 1812
+                    > USED AT LINE 2980
+                    > USED AT LINE 3073
+                    > USED AT LINE 3091
+TRKSEC2:            E7E6 DEFINED AT LINE 1825
+                    > USED AT LINE 1840
+TRKSEC3:            E7FC DEFINED AT LINE 1841
+                    > USED AT LINE 1829
+                    > USED AT LINE 1853
+TRKSEC4:            E811 DEFINED AT LINE 1858
+                    > USED AT LINE 1844
+                    > USED AT LINE 1849
+GETBLOCK:           E840 DEFINED AT LINE 1895
+                    > USED AT LINE 1939
+                    > USED AT LINE 3005
+GETBLK1:            E847 DEFINED AT LINE 1898
+                    > USED AT LINE 1901
+GETBLK2:            E855 DEFINED AT LINE 1907
+                    > USED AT LINE 1911
+GETBLK3:            E85E DEFINED AT LINE 1912
+                    > USED AT LINE 1908
+EXTBLK:             E860 DEFINED AT LINE 1920
+                    > USED AT LINE 1942
+                    > USED AT LINE 3012
+EXTBLK1:            E873 DEFINED AT LINE 1930
+                    > USED AT LINE 1926
+COMBLK:             E879 DEFINED AT LINE 1939
+                    > USED AT LINE 2976
+                    > USED AT LINE 3001
+CHKBLK:             E886 DEFINED AT LINE 1948
+                    > USED AT LINE 2977
+                    > USED AT LINE 3002
+LOGICAL:            E88C DEFINED AT LINE 1959
+                    > USED AT LINE 2979
+                    > USED AT LINE 3045
+LOGICL1:            E892 DEFINED AT LINE 1961
+                    > USED AT LINE 1963
+SETEXT:             E8A8 DEFINED AT LINE 1976
+                    > USED AT LINE 2000
+                    > USED AT LINE 2744
+                    > USED AT LINE 3466
+SETHLDE:            E8B0 DEFINED AT LINE 1984
+                    > USED AT LINE 1994
+                    > USED AT LINE 2010
+STRDATA:            E8BD DEFINED AT LINE 1994
+                    > USED AT LINE 2947
+                    > USED AT LINE 2963
+                    > USED AT LINE 2997
+SETNREC:            E8D4 DEFINED AT LINE 2010
+                    > USED AT LINE 2982
+                    > USED AT LINE 3123
+                    > USED AT LINE 3132
+STNREC1:            E8E0 DEFINED AT LINE 2015
+                    > USED AT LINE 2013
+SHIFTR:             E8EC DEFINED AT LINE 2026
+                    > USED AT LINE 1805
+                    > USED AT LINE 2081
+                    > USED AT LINE 2424
+                    > USED AT LINE 3378
+SHIFTR1:            E8ED DEFINED AT LINE 2027
+                    > USED AT LINE 2036
+CHECKSUM:           E8F9 DEFINED AT LINE 2041
+                    > USED AT LINE 2208
+CHKSUM1:            E8FF DEFINED AT LINE 2044
+                    > USED AT LINE 2047
+SHIFTL:             E906 DEFINED AT LINE 2052
+                    > USED AT LINE 2065
+SHIFTL1:            E907 DEFINED AT LINE 2053
+                    > USED AT LINE 2056
+SETBIT:             E90D DEFINED AT LINE 2061
+                    > USED AT LINE 2092
+                    > USED AT LINE 3390
+GETWPRT:            E920 DEFINED AT LINE 2078
+                    > USED AT LINE 2116
+                    > USED AT LINE 2804
+WRTPRTD:            E92E DEFINED AT LINE 2088
+                    > USED AT LINE 2220
+CHKROFL:            E946 DEFINED AT LINE 2105
+                    > USED AT LINE 2594
+                    > USED AT LINE 2716
+CKROF1:             E949 DEFINED AT LINE 2106
+                    > USED AT LINE 2996
+CHKWPRT:            E956 DEFINED AT LINE 2116
+                    > USED AT LINE 2589
+                    > USED AT LINE 2706
+                    > USED AT LINE 2876
+                    > USED AT LINE 2994
+FCB2HL:             E960 DEFINED AT LINE 2124
+                    > USED AT LINE 2105
+                    > USED AT LINE 2380
+                    > USED AT LINE 2462
+                    > USED AT LINE 2535
+                    > USED AT LINE 2595
+                    > USED AT LINE 2696
+                    > USED AT LINE 2748
+                    > USED AT LINE 2814
+                    > USED AT LINE 3331
+ADDA2HL:            E966 DEFINED AT LINE 2129
+                    > USED AT LINE 3030
+GETS2:              E96B DEFINED AT LINE 2138
+                    > USED AT LINE 2146
+                    > USED AT LINE 2152
+                    > USED AT LINE 2806
+                    > USED AT LINE 3114
+                    > USED AT LINE 3240
+CLEARS2:            E974 DEFINED AT LINE 2146
+                    > USED AT LINE 3448
+                    > USED AT LINE 3469
+                    > USED AT LINE 3502
+SETS2B7:            E97A DEFINED AT LINE 2152
+                    > USED AT LINE 2754
+                    > USED AT LINE 2901
+                    > USED AT LINE 2955
+                    > USED AT LINE 3249
+MOREFLS:            E981 DEFINED AT LINE 2162
+                    > USED AT LINE 2175
+                    > USED AT LINE 2218
+                    > USED AT LINE 2532
+CHKNMBR:            E98E DEFINED AT LINE 2175
+                    > USED AT LINE 2477
+                    > USED AT LINE 2899
+SUBHL:              E997 DEFINED AT LINE 2185
+                    > USED AT LINE 2205
+                    > USED AT LINE 2292
+SETDIR:             E99E DEFINED AT LINE 2195
+                    > USED AT LINE 2227
+CHECKDIR:           E9A0 DEFINED AT LINE 2202
+                    > USED AT LINE 2308
+CHKDIR1:            E9C6 DEFINED AT LINE 2222
+                    > USED AT LINE 2215
+DIRWRITE:           E9C8 DEFINED AT LINE 2227
+                    > USED AT LINE 2599
+                    > USED AT LINE 2700
+DIRREAD:            E9D6 DEFINED AT LINE 2235
+                    > USED AT LINE 2306
+DEFDMA:             E9DC DEFINED AT LINE 2240
+                    > USED AT LINE 2231
+                    > USED AT LINE 3086
+                    > USED AT LINE 3443
+                    > USED AT LINE 3526
+DIRDMA:             E9E2 DEFINED AT LINE 2245
+                    > USED AT LINE 2228
+                    > USED AT LINE 2235
+                    > USED AT LINE 3068
+DIRDMA1:            E9E5 DEFINED AT LINE 2250
+                    > USED AT LINE 2241
+MOVEDIR:            E9EB DEFINED AT LINE 2257
+                    > USED AT LINE 3473
+                    > USED AT LINE 3481
+CKFILPOS:           E9F7 DEFINED AT LINE 2265
+                    > USED AT LINE 2460
+                    > USED AT LINE 2524
+                    > USED AT LINE 2592
+                    > USED AT LINE 2714
+                    > USED AT LINE 2730
+                    > USED AT LINE 2742
+                    > USED AT LINE 2811
+                    > USED AT LINE 2883
+                    > USED AT LINE 2909
+                    > USED AT LINE 2937
+                    > USED AT LINE 2943
+                    > USED AT LINE 3329
+STFILPOS:           EA00 DEFINED AT LINE 2275
+                    > USED AT LINE 2294
+                    > USED AT LINE 2457
+                    > USED AT LINE 2515
+                    > USED AT LINE 2582
+NXENTRY:            EA07 DEFINED AT LINE 2287
+                    > USED AT LINE 2459
+                    > USED AT LINE 2523
+NXENT1:             EA1B DEFINED AT LINE 2295
+                    > USED AT LINE 2293
+NXENT2:             EA22 DEFINED AT LINE 2298
+                    > USED AT LINE 2300
+CKBITMAP:           EA37 DEFINED AT LINE 2316
+                    > USED AT LINE 2361
+                    > USED AT LINE 2628
+                    > USED AT LINE 2656
+CKBMAP1:            EA58 DEFINED AT LINE 2351
+                    > USED AT LINE 2353
+STBITMAP:           EA5E DEFINED AT LINE 2360
+                    > USED AT LINE 2411
+STBMAP1:            EA66 DEFINED AT LINE 2371
+                    > USED AT LINE 2373
+                    > USED AT LINE 2668
+SETFILE:            EA6D DEFINED AT LINE 2380
+                    > USED AT LINE 2476
+                    > USED AT LINE 2598
+SETFL1:             EA77 DEFINED AT LINE 2385
+                    > USED AT LINE 2415
+SETFL2:             EA8A DEFINED AT LINE 2397
+                    > USED AT LINE 2391
+SETFL3:             EA90 DEFINED AT LINE 2403
+                    > USED AT LINE 2396
+SETFL4:             EA9F DEFINED AT LINE 2412
+                    > USED AT LINE 2405
+BITMAP:             EAA5 DEFINED AT LINE 2422
+                    > USED AT LINE 3392
+BITMAP1:            EAB3 DEFINED AT LINE 2437
+                    > USED AT LINE 2442
+BITMAP2:            EAD4 DEFINED AT LINE 2458
+                    > USED AT LINE 2465
+                    > USED AT LINE 2478
+BITMAP3:            EAF8 DEFINED AT LINE 2475
+                    > USED AT LINE 2468
+                    > USED AT LINE 2472
+STSTATUS:           EB03 DEFINED AT LINE 2482
+                    > USED AT LINE 3487
+                    > USED AT LINE 3510
+                    > USED AT LINE 3542
+SAMEXT:             EB09 DEFINED AT LINE 2490
+                    > USED AT LINE 2557
+FINDFST:            EB1A DEFINED AT LINE 2509
+                    > USED AT LINE 2591
+                    > USED AT LINE 2708
+                    > USED AT LINE 2729
+                    > USED AT LINE 2741
+                    > USED AT LINE 2810
+                    > USED AT LINE 2882
+                    > USED AT LINE 2936
+                    > USED AT LINE 3319
+                    > USED AT LINE 3472
+FINDNXT:            EB2F DEFINED AT LINE 2522
+                    > USED AT LINE 2553
+                    > USED AT LINE 2559
+                    > USED AT LINE 2600
+                    > USED AT LINE 2720
+                    > USED AT LINE 2735
+                    > USED AT LINE 3351
+                    > USED AT LINE 3480
+FNDNXT1:            EB4C DEFINED AT LINE 2535
+                    > USED AT LINE 2530
+FNDNXT2:            EB55 DEFINED AT LINE 2539
+                    > USED AT LINE 2568
+FNDNXT3:            EB75 DEFINED AT LINE 2555
+                    > USED AT LINE 2550
+FNDNXT4:            EB7E DEFINED AT LINE 2564
+                    > USED AT LINE 2544
+                    > USED AT LINE 2547
+                    > USED AT LINE 2554
+FNDNXT5:            EB85 DEFINED AT LINE 2569
+                    > USED AT LINE 2541
+FNDNXT6:            EB96 DEFINED AT LINE 2582
+                    > USED AT LINE 2525
+                    > USED AT LINE 2534
+ERAFILE:            EB9E DEFINED AT LINE 2589
+                    > USED AT LINE 3486
+ERAFIL1:            EBA6 DEFINED AT LINE 2592
+                    > USED AT LINE 2601
+FNDSPACE:           EBC0 DEFINED AT LINE 2616
+                    > USED AT LINE 3015
+FNDSPA1:            EBC2 DEFINED AT LINE 2622
+                    > USED AT LINE 2661
+                    > USED AT LINE 2678
+FNDSPA2:            EBD3 DEFINED AT LINE 2645
+                    > USED AT LINE 2624
+FNDSPA3:            EBEE DEFINED AT LINE 2666
+                    > USED AT LINE 2630
+                    > USED AT LINE 2658
+FNDSPA4:            EBF6 DEFINED AT LINE 2676
+                    > USED AT LINE 2650
+FCBSET:             EBFF DEFINED AT LINE 2684
+                    > USED AT LINE 2900
+UPDATE:             EC03 DEFINED AT LINE 2691
+                    > USED AT LINE 2719
+                    > USED AT LINE 2734
+UPDATE1:            EC12 DEFINED AT LINE 2699
+                    > USED AT LINE 2868
+CHGNAMES:           EC18 DEFINED AT LINE 2706
+                    > USED AT LINE 3509
+CHGNAM1:            EC29 DEFINED AT LINE 2714
+                    > USED AT LINE 2721
+SAVEATTR:           EC3D DEFINED AT LINE 2728
+                    > USED AT LINE 3541
+SAVATR1:            EC42 DEFINED AT LINE 2730
+                    > USED AT LINE 2736
+OPENIT:             EC53 DEFINED AT LINE 2740
+                    > USED AT LINE 3216
+                    > USED AT LINE 3450
+OPENIT1:            EC5C DEFINED AT LINE 2744
+                    > USED AT LINE 2946
+OPENIT2:            EC8D DEFINED AT LINE 2772
+                    > USED AT LINE 2768
+                    > USED AT LINE 2770
+MOVEWORD:           EC96 DEFINED AT LINE 2783
+                    > USED AT LINE 2835
+                    > USED AT LINE 2837
+CLOSEIT:            ECA4 DEFINED AT LINE 2800
+                    > USED AT LINE 2908
+                    > USED AT LINE 3203
+                    > USED AT LINE 3455
+CLOSEIT1:           ECCF DEFINED AT LINE 2820
+                    > USED AT LINE 2851
+CLOSEIT2:           ECDD DEFINED AT LINE 2828
+                    > USED AT LINE 2826
+CLOSEIT3:           ECE3 DEFINED AT LINE 2832
+                    > USED AT LINE 2829
+CLOSEIT4:           ECEA DEFINED AT LINE 2835
+                    > USED AT LINE 2822
+CLOSEIT5:           ECFF DEFINED AT LINE 2848
+                    > USED AT LINE 2834
+CLOSEIT6:           ED19 DEFINED AT LINE 2866
+                    > USED AT LINE 2858
+CLOSEIT7:           ED21 DEFINED AT LINE 2869
+                    > USED AT LINE 2833
+                    > USED AT LINE 2841
+                    > USED AT LINE 2846
+GETEMPTY:           ED26 DEFINED AT LINE 2876
+                    > USED AT LINE 2942
+                    > USED AT LINE 3225
+                    > USED AT LINE 3504
+GETMT1:             ED48 DEFINED AT LINE 2892
+                    > USED AT LINE 2895
+GETNEXT:            ED5C DEFINED AT LINE 2906
+                    > USED AT LINE 2970
+                    > USED AT LINE 3124
+GTNEXT1:            ED85 DEFINED AT LINE 2926
+                    > USED AT LINE 2918
+GTNEXT2:            ED90 DEFINED AT LINE 2935
+                    > USED AT LINE 2924
+GTNEXT3:            EDAE DEFINED AT LINE 2946
+                    > USED AT LINE 2925
+                    > USED AT LINE 2938
+GTNEXT4:            EDB1 DEFINED AT LINE 2947
+                    > USED AT LINE 2945
+GTNEXT5:            EDB8 DEFINED AT LINE 2954
+                    > USED AT LINE 2931
+                    > USED AT LINE 2941
+                    > USED AT LINE 2944
+RDSEQ:              EDBE DEFINED AT LINE 2959
+                    > USED AT LINE 3493
+RDSEQ1:             EDC3 DEFINED AT LINE 2961
+                    > USED AT LINE 3255
+RDSEQ2:             EDE8 DEFINED AT LINE 2976
+                    > USED AT LINE 2967
+RDSEQ3:             EDFD DEFINED AT LINE 2986
+                    > USED AT LINE 2969
+                    > USED AT LINE 2975
+                    > USED AT LINE 2978
+WTSEQ:              EE00 DEFINED AT LINE 2990
+                    > USED AT LINE 3498
+WTSEQ1:             EE05 DEFINED AT LINE 2992
+                    > USED AT LINE 3262
+                    > USED AT LINE 3642
+WTSEQ2:             EE3D DEFINED AT LINE 3015
+                    > USED AT LINE 3009
+WTSEQ3:             EE4A DEFINED AT LINE 3021
+                    > USED AT LINE 3018
+WTSEQ4:             EE66 DEFINED AT LINE 3033
+                    > USED AT LINE 3029
+WTSEQ5:             EE6E DEFINED AT LINE 3040
+                    > USED AT LINE 3032
+WTSEQ6:             EE70 DEFINED AT LINE 3041
+                    > USED AT LINE 3004
+WTSEQ7:             EE8E DEFINED AT LINE 3064
+                    > USED AT LINE 3067
+WTSEQ8:             EE9C DEFINED AT LINE 3071
+                    > USED AT LINE 3083
+WTSEQ9:             EEBD DEFINED AT LINE 3091
+                    > USED AT LINE 3049
+                    > USED AT LINE 3060
+WTSEQ10:            EED4 DEFINED AT LINE 3107
+                    > USED AT LINE 3099
+WTSEQ99:            EEE1 DEFINED AT LINE 3118
+WTSEQ11:            EF00 DEFINED AT LINE 3131
+                    > USED AT LINE 3128
+WTSEQ12:            EF02 DEFINED AT LINE 3132
+                    > USED AT LINE 3119
+                    > USED AT LINE 3122
+POSITION:           EF05 DEFINED AT LINE 3150
+                    > USED AT LINE 3254
+                    > USED AT LINE 3261
+POSITN1:            EF09 DEFINED AT LINE 3155
+                    > USED AT LINE 3641
+POSITN2:            EF49 DEFINED AT LINE 3201
+                    > USED AT LINE 3191
+POSITN3:            EF81 DEFINED AT LINE 3233
+                    > USED AT LINE 3197
+                    > USED AT LINE 3219
+POSITN4:            EF86 DEFINED AT LINE 3239
+                    > USED AT LINE 3209
+                    > USED AT LINE 3224
+                    > USED AT LINE 3229
+POSITN5:            EF8D DEFINED AT LINE 3246
+                    > USED AT LINE 3183
+READRAN:            EF95 DEFINED AT LINE 3253
+                    > USED AT LINE 3567
+WRITERAN:           EF9E DEFINED AT LINE 3260
+                    > USED AT LINE 3572
+COMPRAND:           EFA7 DEFINED AT LINE 3273
+                    > USED AT LINE 3333
+                    > USED AT LINE 3361
+RANSIZE:            EFD4 DEFINED AT LINE 3318
+                    > USED AT LINE 3577
+RANSIZ1:            EFE6 DEFINED AT LINE 3329
+                    > USED AT LINE 3352
+RANSIZ2:            F008 DEFINED AT LINE 3351
+                    > USED AT LINE 3345
+RANSIZ3:            F00E DEFINED AT LINE 3353
+                    > USED AT LINE 3330
+SETRAN:             F010 DEFINED AT LINE 3359
+LOGINDRV:           F023 DEFINED AT LINE 3375
+                    > USED AT LINE 3401
+                    > USED AT LINE 3444
+SETDSK:             F047 DEFINED AT LINE 3396
+                    > USED AT LINE 3422
+                    > USED AT LINE 3622
+AUTOSEL:            F053 DEFINED AT LINE 3407
+                    > USED AT LINE 3449
+                    > USED AT LINE 3454
+                    > USED AT LINE 3470
+                    > USED AT LINE 3479
+                    > USED AT LINE 3485
+                    > USED AT LINE 3492
+                    > USED AT LINE 3497
+                    > USED AT LINE 3503
+                    > USED AT LINE 3508
+                    > USED AT LINE 3540
+                    > USED AT LINE 3566
+                    > USED AT LINE 3571
+                    > USED AT LINE 3576
+                    > USED AT LINE 3637
+AUTOSL1:            F077 DEFINED AT LINE 3423
+                    > USED AT LINE 3415
+GETVER:             F080 DEFINED AT LINE 3431
+RSTDSK:             F085 DEFINED AT LINE 3436
+OPENFIL:            F09E DEFINED AT LINE 3448
+CLOSEFIL:           F0A7 DEFINED AT LINE 3454
+                    > USED AT LINE 1288
+GETFST:             F0AD DEFINED AT LINE 3461
+                    > USED AT LINE 1288
+GETFST1:            F0C4 DEFINED AT LINE 3472
+                    > USED AT LINE 3465
+GETNXT:             F0CA DEFINED AT LINE 3477
+DELFILE:            F0D9 DEFINED AT LINE 3485
+READSEQ:            F0E2 DEFINED AT LINE 3492
+WRTSEQ:             F0E8 DEFINED AT LINE 3497
+FCREATE:            F0EE DEFINED AT LINE 3502
+RENFILE:            F0F7 DEFINED AT LINE 3508
+                    > USED AT LINE 1289
+GETLOG:             F100 DEFINED AT LINE 3514
+                    > USED AT LINE 1289
+GETCRNT:            F106 DEFINED AT LINE 3519
+PUTDMA:             F10C DEFINED AT LINE 3524
+GETALOC:            F113 DEFINED AT LINE 3530
+GETROV:             F119 DEFINED AT LINE 3535
+SETATTR:            F11F DEFINED AT LINE 3540
+GETPARM:            F128 DEFINED AT LINE 3547
+                    > USED AT LINE 1290
+GETPRM1:            F12B DEFINED AT LINE 3548
+                    > USED AT LINE 3515
+                    > USED AT LINE 3531
+                    > USED AT LINE 3536
+GETUSER:            F12F DEFINED AT LINE 3555
+                    > USED AT LINE 1290
+SETUSER:            F13D DEFINED AT LINE 3560
+                    > USED AT LINE 3557
+RDRANDOM:           F143 DEFINED AT LINE 3566
+WTRANDOM:           F149 DEFINED AT LINE 3571
+FILESIZE:           F14F DEFINED AT LINE 3576
+LOGOFF:             F155 DEFINED AT LINE 3585
+GOBACK:             F176 DEFINED AT LINE 3611
+                    > USED AT LINE 1264
+GOBACK1:            F193 DEFINED AT LINE 3623
+                    > USED AT LINE 1646
+                    > USED AT LINE 3613
+                    > USED AT LINE 3618
+WTSPECL:            F19D DEFINED AT LINE 3637
+                    > USED AT LINE 1291
+EMPTYFCB:           F1AE DEFINED AT LINE 3651
+                    > USED AT LINE 2879
+WRTPRT:             F1AF DEFINED AT LINE 3652
+                    > USED AT LINE 2078
+                    > USED AT LINE 2088
+                    > USED AT LINE 2093
+                    > USED AT LINE 3437
+                    > USED AT LINE 3535
+                    > USED AT LINE 3597
+                    > USED AT LINE 3606
+LOGIN:              F1B1 DEFINED AT LINE 3653
+                    > USED AT LINE 3375
+                    > USED AT LINE 3387
+                    > USED AT LINE 3391
+                    > USED AT LINE 3438
+                    > USED AT LINE 3514
+                    > USED AT LINE 3591
+                    > USED AT LINE 3599
+USERDMA:            F1B3 DEFINED AT LINE 3654
+                    > USED AT LINE 2240
+                    > USED AT LINE 2259
+                    > USED AT LINE 3442
+                    > USED AT LINE 3525
+SCRATCH1:           F1B5 DEFINED AT LINE 3658
+                    > USED AT LINE 1743
+                    > USED AT LINE 2097
+                    > USED AT LINE 2164
+                    > USED AT LINE 2453
+SCRATCH2:           F1B7 DEFINED AT LINE 3659
+                    > USED AT LINE 1746
+                    > USED AT LINE 1777
+                    > USED AT LINE 1820
+                    > USED AT LINE 1869
+SCRATCH3:           F1B9 DEFINED AT LINE 3660
+                    > USED AT LINE 1749
+                    > USED AT LINE 1781
+                    > USED AT LINE 1816
+                    > USED AT LINE 1874
+DIRBUF:             F1BB DEFINED AT LINE 3664
+                    > USED AT LINE 1754
+                    > USED AT LINE 2042
+                    > USED AT LINE 2124
+                    > USED AT LINE 2245
+                    > USED AT LINE 2257
+                    > USED AT LINE 3062
+DISKPB:             F1BD DEFINED AT LINE 3665
+                    > USED AT LINE 1757
+                    > USED AT LINE 3547
+CHKVECT:            F1BF DEFINED AT LINE 3666
+                    > USED AT LINE 2209
+ALOCVECT:           F1C1 DEFINED AT LINE 3667
+                    > USED AT LINE 2348
+                    > USED AT LINE 2436
+                    > USED AT LINE 2445
+                    > USED AT LINE 3530
+SECTORS:            F1C3 DEFINED AT LINE 3671
+                    > USED AT LINE 1759
+                    > USED AT LINE 1831
+                    > USED AT LINE 1842
+BLKSHFT:            F1C5 DEFINED AT LINE 3672
+                    > USED AT LINE 1895
+                    > USED AT LINE 1959
+BLKMASK:            F1C6 DEFINED AT LINE 3673
+                    > USED AT LINE 1965
+                    > USED AT LINE 3078
+EXTMASK:            F1C7 DEFINED AT LINE 3674
+                    > USED AT LINE 2001
+                    > USED AT LINE 2492
+                    > USED AT LINE 2920
+DSKSIZE:            F1C8 DEFINED AT LINE 3675
+                    > USED AT LINE 1762
+                    > USED AT LINE 2406
+                    > USED AT LINE 2422
+                    > USED AT LINE 2645
+DIRSIZE:            F1CA DEFINED AT LINE 3676
+                    > USED AT LINE 2094
+                    > USED AT LINE 2287
+ALLOC0:             F1CC DEFINED AT LINE 3677
+                    > USED AT LINE 2443
+ALLOC1:             F1CE DEFINED AT LINE 3678
+                    > USED AT LINE 2204
+OFFSET:             F1D0 DEFINED AT LINE 3679
+                    > USED AT LINE 1863
+XLATE:              F1D2 DEFINED AT LINE 3680
+                    > USED AT LINE 1753
+                    > USED AT LINE 1885
+CLOSEFLG:           F1D4 DEFINED AT LINE 3683
+                    > USED AT LINE 2867
+                    > USED AT LINE 2907
+                    > USED AT LINE 2922
+RDWRTFLG:           F1D5 DEFINED AT LINE 3684
+                    > USED AT LINE 2939
+                    > USED AT LINE 2962
+                    > USED AT LINE 2993
+FNDSTAT:            F1D6 DEFINED AT LINE 3685
+                    > USED AT LINE 2482
+                    > USED AT LINE 2510
+                    > USED AT LINE 2572
+MODE:               F1D7 DEFINED AT LINE 3686
+                    > USED AT LINE 2011
+                    > USED AT LINE 2960
+                    > USED AT LINE 2991
+                    > USED AT LINE 3046
+                    > USED AT LINE 3120
+                    > USED AT LINE 3151
+                    > USED AT LINE 3639
+EPARAM:             F1D8 DEFINED AT LINE 3687
+                    > USED AT LINE 1255
+                    > USED AT LINE 3396
+                    > USED AT LINE 3413
+                    > USED AT LINE 3555
+                    > USED AT LINE 3621
+RELBLOCK:           F1D9 DEFINED AT LINE 3688
+                    > USED AT LINE 3006
+                    > USED AT LINE 3028
+COUNTER:            F1DA DEFINED AT LINE 3689
+                    > USED AT LINE 2511
+                    > USED AT LINE 2536
+SAVEFCB:            F1DB DEFINED AT LINE 3690
+                    > USED AT LINE 2514
+                    > USED AT LINE 2526
+                    > USED AT LINE 3477
+BIGDISK:            F1DF DEFINED AT LINE 3691
+                    > USED AT LINE 1764
+                    > USED AT LINE 1924
+                    > USED AT LINE 2389
+                    > USED AT LINE 2820
+                    > USED AT LINE 3026
+AUTO:               F1E0 DEFINED AT LINE 3692
+                    > USED AT LINE 1263
+                    > USED AT LINE 3408
+                    > USED AT LINE 3611
+OLDDRV:             F1E1 DEFINED AT LINE 3693
+                    > USED AT LINE 3417
+                    > USED AT LINE 3620
+AUTOFLAG:           F1E2 DEFINED AT LINE 3694
+                    > USED AT LINE 1262
+                    > USED AT LINE 3419
+                    > USED AT LINE 3616
+SAVNXT:             F1E3 DEFINED AT LINE 3695
+                    > USED AT LINE 1999
+                    > USED AT LINE 2020
+                    > USED AT LINE 2965
+                    > USED AT LINE 3097
+SAVEXT:             F1E4 DEFINED AT LINE 3696
+                    > USED AT LINE 1906
+                    > USED AT LINE 2003
+SAVNREC:            F1E5 DEFINED AT LINE 3697
+                    > USED AT LINE 1897
+                    > USED AT LINE 1967
+                    > USED AT LINE 1996
+                    > USED AT LINE 2016
+                    > USED AT LINE 2964
+                    > USED AT LINE 2972
+                    > USED AT LINE 2998
+                    > USED AT LINE 3096
+                    > USED AT LINE 3130
+BLKNMBR:            F1E7 DEFINED AT LINE 3698
+                    > USED AT LINE 1806
+                    > USED AT LINE 1812
+                    > USED AT LINE 1943
+                    > USED AT LINE 1948
+                    > USED AT LINE 1960
+                    > USED AT LINE 1971
+                    > USED AT LINE 3021
+                    > USED AT LINE 3071
+                    > USED AT LINE 3076
+                    > USED AT LINE 3085
+LOGSECT:            F1E9 DEFINED AT LINE 3699
+                    > USED AT LINE 1964
+                    > USED AT LINE 3069
+FCBPOS:             F1EB DEFINED AT LINE 3700
+                    > USED AT LINE 2125
+                    > USED AT LINE 2301
+FILEPOS:            F1EC DEFINED AT LINE 3701
+                    > USED AT LINE 1803
+                    > USED AT LINE 2162
+                    > USED AT LINE 2265
+                    > USED AT LINE 2276
+                    > USED AT LINE 2289
+                    > USED AT LINE 2291
+                    > USED AT LINE 2295
+                    > USED AT LINE 2569
+                    > USED AT LINE 2802
+                    > USED AT LINE 2803
+CKSUMTBL:           F1EE DEFINED AT LINE 3706
+                    > USED AT LINE 1807
+                    > USED AT LINE 2202
+                    > USED AT LINE 2211
+BOOT:               F200 DEFINED AT LINE 3720
+WBOOT:              F203 DEFINED AT LINE 3721
+                    > USED AT LINE 1286
+CONST:              F206 DEFINED AT LINE 3722
+                    > USED AT LINE 1375
+                    > USED AT LINE 1642
+                    > USED AT LINE 1644
+CONIN:              F209 DEFINED AT LINE 3723
+                    > USED AT LINE 1339
+                    > USED AT LINE 1378
+                    > USED AT LINE 1381
+                    > USED AT LINE 1647
+CONOUT:             F20C DEFINED AT LINE 3724
+                    > USED AT LINE 1401
+                    > USED AT LINE 1461
+                    > USED AT LINE 1463
+                    > USED AT LINE 1643
+LIST:               F20F DEFINED AT LINE 3725
+                    > USED AT LINE 1406
+PUNCH:              F212 DEFINED AT LINE 3726
+READER:             F215 DEFINED AT LINE 3727
+                    > USED AT LINE 1631
+HOME:               F218 DEFINED AT LINE 3728
+                    > USED AT LINE 1775
+SELDSK:             F21B DEFINED AT LINE 3729
+                    > USED AT LINE 1731
+SETTRK:             F21E DEFINED AT LINE 3730
+                    > USED AT LINE 1867
+SETSEC:             F221 DEFINED AT LINE 3731
+                    > USED AT LINE 1890
+SETDMA:             F224 DEFINED AT LINE 3732
+                    > USED AT LINE 2253
+READ:               F227 DEFINED AT LINE 3733
+                    > USED AT LINE 1789
+WRITE:              F22A DEFINED AT LINE 3734
+                    > USED AT LINE 1794
+PRSTAT:             F22D DEFINED AT LINE 3735
+SECTRN:             F230 DEFINED AT LINE 3736
+                    > USED AT LINE 1887
