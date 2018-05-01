@@ -1,0 +1,6 @@
+.org 0
+ld bc, $100000
+
+disp equ 300
+cp (ix)
+ld a,(ix+disp)

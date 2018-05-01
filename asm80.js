@@ -126,7 +126,13 @@ switch (asmtype) {
 
 if (vxx[0]) {
   //error
-  console.log(vxx[0]);
+  var err = vxx[0];
+  if (err.msg) {
+    console.error("ERROR ",err.msg);
+    console.error("at line ",err.s.numline);
+    console.error(">>> ",err.s.line);
+  }
+  else console.log(vxx[0]);
   //+ "\n" + "Line: "+vxx[0].s.numline);
   process.exit(-1);
 }
