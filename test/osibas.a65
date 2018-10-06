@@ -614,8 +614,8 @@ ERROR:
         lda     ERROR_MESSAGES+1,x
         jsr     OUTDO
         jsr     STKINI
-        lda     #<QT_ERROR
-        ldy     #>QT_ERROR
+        lda     #lsb(QT_ERROR)
+        ldy     #msb(QT_ERROR)
 ; ----------------------------------------------------------------------------
 ; PRINT STRING AT (Y,A)
 ; PRINT CURRENT LINE # UNLESS IN DIRECT MODE
@@ -632,8 +632,8 @@ PRINT_ERROR_LINNUM:
 ; ----------------------------------------------------------------------------
 RESTART:
         lsr     Z14
-        lda     #<QT_OK
-        ldy     #>QT_OK
+        lda     #lsb(QT_OK)
+        ldy     #msb(QT_OK)
         jsr     GOSTROUT
 L2351:
         jsr     INLIN
@@ -936,7 +936,7 @@ L24DB:
 ; ---END OF LINE------------------
 L24EA:
         sta     INPUTBUFFER-3,y
-        lda     #<INPUTBUFFER-1
+        lda     #lsb(INPUTBUFFER-1)
         sta     TXTPTR
         rts
 ; ----------------------------------------------------------------------------

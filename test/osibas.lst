@@ -592,8 +592,8 @@
 045C   BD 65 03               LDA   ERROR_MESSAGES+1,x   
 045F   20 D9 0A               JSR   OUTDO   
 0462   20 91 06               JSR   STKINI   
-0465   A9 86                  LDA   #<QT_ERROR   
-0467   A0 03                  LDY   #>QT_ERROR   
+0465   A9 86                  LDA   #lsb(QT_ERROR)   
+0467   A0 03                  LDY   #msb(QT_ERROR)   
 0469                          ; ----------------------------------------------------------------------------
 0469                          ; PRINT STRING AT (Y,A)
 0469                          ; PRINT CURRENT LINE # UNLESS IN DIRECT MODE
@@ -610,8 +610,8 @@
 0474                          ; ----------------------------------------------------------------------------
 0474                RESTART:   
 0474   46 64                  LSR   Z14   
-0476   A9 92                  LDA   #<QT_OK   
-0478   A0 03                  LDY   #>QT_OK   
+0476   A9 92                  LDA   #lsb(QT_OK)   
+0478   A0 03                  LDY   #msb(QT_OK)   
 047A   20 03 00               JSR   GOSTROUT   
 047D                L2351:    
 047D   20 57 05               JSR   INLIN   
@@ -913,7 +913,7 @@
 062A                          ; ---END OF LINE------------------
 062A                L24EA:    
 062A   99 10 00               STA   INPUTBUFFER-3,y   
-062D   A9 12                  LDA   #<INPUTBUFFER-1   
+062D   A9 12                  LDA   #lsb(INPUTBUFFER-1)   
 062F   85 C3                  STA   TXTPTR   
 0631   60                     RTS   
 0632                          ; ----------------------------------------------------------------------------
