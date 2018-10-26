@@ -1,0 +1,10 @@
+0000   A2 FF                  LDX   #0xFF   
+0002                LOOP:        
+0002   18                     CLC      
+0003   E8                     INX      
+0004   88                     DEY      
+0005   D0 FB                  BNE   LOOP   
+
+
+LOOP:               0002 DEFINED AT LINE 2
+                    > USED AT LINE 6
