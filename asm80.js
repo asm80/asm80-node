@@ -119,7 +119,14 @@ switch (asmtype) {
   case 'Z80':		vxx = ASM.compile(data, Monolith.Z80); break;
   case 'M6800':	vxx = ASM.compile(data, Monolith.M6800); break;
   case 'CDP1802':	vxx = ASM.compile(data, Monolith.CDP1802); break;
-  case 'M6809':	vxx = ASM.compile(data, Monolith.M6809); break;
+  case 'M6809':
+  vxx = ASM.compile(data, Monolith.H6309);
+
+  if (ASM.PRAGMAS.indexOf("6309")<0) {
+    vxx = ASM.compile(data, Monolith.M6809);
+  }
+
+  break;
   default: console.log("Unrecognized ASM type");
   process.exit(-1);
 }

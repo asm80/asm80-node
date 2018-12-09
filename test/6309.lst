@@ -1,0 +1,44 @@
+0000                             ; Monitor vectors:
+0000                MRESET:   EQU   $E000   
+0000                MSERIN:   EQU   $E003   
+0000                MSEROUT:   EQU   $E006   
+0000                MPRINT2:   EQU   $E009   
+0000                MPRINTX:   EQU   $E00C   
+0000                MPRIMM:   EQU   $E00F   
+0100                          .ORG   $100   
+0100                          .ENT   $   
+0100                             ; test 20
+0100                          .PRAGMA   6309   
+0100                             ; here are your space:
+0100                TESTMOD:      
+0100   BD 01 37               JSR   hdtest   
+0103   27 19                  BEQ   m68   
+0105   BD E0 0F               JSR   MPRIMM   
+0108   0D 0A 48 69 20 66 72 6F 6D 20 48 44 36 33 30 39 0D 0A 00 .CSTR   $0d,$0a,"Hi from HD6309",$0d,$0a   
+011B   7E E0 00               JMP   MRESET   
+011E                M68:         
+011E   BD E0 0F               JSR   MPRIMM   
+0121   0D 0A 48 69 20 66 72 6F 6D 20 4D 43 36 38 30 39 0D 0A 00 .CSTR   $0d,$0a,"Hi from MC6809",$0d,$0a   
+0134   7E E0 00               JMP   MRESET   
+0137                HDTEST:      
+0137   34 06                  PSHS   d   
+0139   10 43                  COMD      
+013B   E1 61                  CMPB   1,s   
+013D   35 86                  PULS   d,pc   
+
+
+MRESET:             E000 DEFINED AT LINE 2
+                    > USED AT LINE 22
+                    > USED AT LINE 26
+MSERIN:             E003 DEFINED AT LINE 3
+MSEROUT:            E006 DEFINED AT LINE 4
+MPRINT2:            E009 DEFINED AT LINE 5
+MPRINTX:            E00C DEFINED AT LINE 6
+MPRIMM:             E00F DEFINED AT LINE 7
+                    > USED AT LINE 20
+                    > USED AT LINE 24
+TESTMOD:            0100 DEFINED AT LINE 16
+M68:                011E DEFINED AT LINE 23
+                    > USED AT LINE 19
+HDTEST:             0137 DEFINED AT LINE 28
+                    > USED AT LINE 18

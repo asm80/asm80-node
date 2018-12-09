@@ -1,0 +1,32 @@
+; Monitor vectors:
+MRESET      EQU     $E000
+MSERIN      EQU     $E003
+MSEROUT     EQU     $E006
+MPRINT2     EQU     $E009
+MPRINTX     EQU     $E00C
+MPRIMM      EQU     $E00F
+
+            .ORG    $100
+            .ENT    $
+
+; test 20
+.pragma 6309
+
+; here are your space:
+TESTMOD:
+
+            JSR     hdtest
+            BEQ     m68
+            JSR     MPRIMM
+            .CSTR   $0d,$0a,"Hi from HD6309",$0d,$0a
+            JMP     MRESET
+M68:
+            JSR     MPRIMM
+            .CSTR   $0d,$0a,"Hi from MC6809",$0d,$0a
+            JMP     MRESET
+
+HDTEST:
+            PSHS    d
+            comd
+            CMPB    1,s
+            PULS    d,pc
