@@ -1,0 +1,31 @@
+0000                             ; 
+0200                          .ORG   200h   
+0200                          .ENT   $   
+0200   EA           HERE:     NOP      
+        **MACRO UNROLL - JEQ
+0201                          IF   isnear(far-$)   
+                              BEQ   far   
+0201                          ELSE      
+0201   D0 03                  BNE   $+5   
+0203   4C 00 04               JMP   far   
+0206                          ENDIF      
+        **MACRO UNROLL - JEQ
+0206                          IF   isnear(here-$)   
+0206   F0 F8                  BEQ   here   
+0208                          ELSE      
+                              BNE   $+5   
+                              JMP   here   
+0208                          ENDIF      
+0208                             ; 
+0208                             ; 
+0400                          .ORG   400h   
+0400   EA           FAR:      NOP      
+0401                             ; 
+0401                             ; 
+0401                             ; 
+
+
+HERE:               0200 DEFINED AT LINE 4
+                    > USED AT LINE 16
+FAR:                0400 DEFINED AT LINE 10
+                    > USED AT LINE 19

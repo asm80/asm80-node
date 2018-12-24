@@ -1,0 +1,21 @@
+;
+            .ORG    200h
+            .ENT    $
+HERE:       NOP
+            JEQ     far
+            JEQ     here
+;
+;
+            .ORG    400h
+FAR:        NOP
+;
+;
+;
+            .MACRO  jeq
+            IF      isnear(%%1-$)
+            BEQ     %%1
+            ELSE
+            BNE     $+5
+            JMP     %%1
+            ENDIF
+            .ENDM
