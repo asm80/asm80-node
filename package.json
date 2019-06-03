@@ -26,7 +26,7 @@
   ],
   "author": "Martin Maly <maly@maly.cz> (http://www.asm80.com)",
   "engines": {
-    "node": ">=5.10",
+    "node": ">=10.0",
     "npm": "1"
   },
   "license": "MIT",
@@ -35,6 +35,8 @@
   },
   "homepage": "https://github.com/maly/asm80-node#readme",
   "dependencies": {
+    "atob": "^2.1.2",
+    "btoa": "^1.2.1",
     "commander": "^2.9.0"
   }
 }

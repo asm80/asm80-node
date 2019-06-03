@@ -1,0 +1,61 @@
+0000                .macro MOVE,src,dst,len
+0000                             ; 
+0000                if src != dst
+0000                 if src ?> dst
+0000                 ld hl,src
+0000                 ld de,dst
+0000                 ld bc,len
+0000                 ldir
+0000                 else
+0000                 ld hl,src+len-1
+0000                 ld de,dst+len-1
+0000                 ld bc,len
+0000                 lddr
+0000                 endif
+0000                endif
+0000                .endm
+0000                 
+0000                          ;*Macro unroll: move $100,$200,$300
+0000                          IF   $100 != $200   
+0000                          IF   $100 ?> $200   
+                              LD   hl,$100   
+                              LD   de,$200   
+                              LD   bc,$300   
+                              LDIR      
+0000                          ELSE      
+0000   21 FF 03               LD   hl,$100+$300-1   
+0003   11 FF 04               LD   de,$200+$300-1   
+0006   01 00 03               LD   bc,$300   
+0009   ED B8                  LDDR      
+000B                          ENDIF      
+000B                          ENDIF      
+000B                          ;*Macro unroll: move $200,$100,$300
+000B                          IF   $200 != $100   
+000B                          IF   $200 ?> $100   
+000B   21 00 02               LD   hl,$200   
+000E   11 00 01               LD   de,$100   
+0011   01 00 03               LD   bc,$300   
+0014   ED B0                  LDIR      
+0016                          ELSE      
+                              LD   hl,$200+$300-1   
+                              LD   de,$100+$300-1   
+                              LD   bc,$300   
+                              LDDR      
+0016                          ENDIF      
+0016                          ENDIF      
+0016                          ;*Macro unroll: move $100,$100,$300
+0016                          IF   $100 != $100   
+0016                          IF   $100 ?> $100   
+                              LD   hl,$100   
+                              LD   de,$100   
+                              LD   bc,$300   
+                              LDIR      
+0016                          ELSE      
+                              LD   hl,$100+$300-1   
+                              LD   de,$100+$300-1   
+                              LD   bc,$300   
+                              LDDR      
+0016                          ENDIF      
+0016                          ENDIF      
+
+

@@ -1,0 +1,19 @@
+move .macro src,dst,len
+if src != dst
+ if src ?> dst
+  ld hl,src
+  ld de,dst
+  ld bc,len
+  ldir
+ else
+  ld hl,src+len-1
+  ld de,dst+len-1
+  ld bc,len
+  lddr
+ endif
+endif
+.endm
+
+move $100,$200,$300
+move $200,$100,$300
+move $100,$100,$300

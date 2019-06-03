@@ -46,12 +46,16 @@ var path = require("path");
 var LFS = require("./lfsnode.js");
 var hextools = require("./hextools.js");
 
+var btoa = require('btoa');
+var atob = require('atob');
+
 var pjson = require('./package.json');
+var corejson = require('./core.json');
 //console.log(pjson.version);
 
 var program = require('commander');
 
-program.version(pjson.version)
+program.version(pjson.version+"-core"+corejson.version)
   .usage('[options] <file>')
   .option('-o, --output <file>', 'Output file name')
   .option('-t, --type <type>', 'Output type [default: hex] - hex, srec, com (for CP/M), sna, tap (for ZX Spectrum), prg (for C64)')
