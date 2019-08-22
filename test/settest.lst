@@ -1,0 +1,22 @@
+0000                IC:       .SET   1   
+0000   3E 01                  MVI   A,IC   
+0002                IC:       .SET   IC+1   
+0002   3E 02                  MVI   A,IC   
+0004                IC:       .SET   IC+1   
+0004   3E 03                  MVI   A,IC   
+0006                IC:       .SET   IC+1   
+0006   3E 04                  MVI   A,IC   
+0008                IC:       .SET   IC+1   
+0008   3E 05                  MVI   A,IC   
+
+
+IC:                 0009 DEFINED AT LINE 9
+                    > USED AT LINE 2
+                    > USED AT LINE 3
+                    > USED AT LINE 4
+                    > USED AT LINE 5
+                    > USED AT LINE 6
+                    > USED AT LINE 7
+                    > USED AT LINE 8
+                    > USED AT LINE 9
+                    > USED AT LINE 10
