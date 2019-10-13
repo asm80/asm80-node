@@ -16,13 +16,13 @@
   `$ asm80 [options] filename`
 
   Assembles given the file, e.g. test.z80, into two files: test.hex (binary) and test.lst (listing).
-  
+
   Filename has to be the last parameter.
 
   Options are:
 
   - `-o, --output <file>` Output file name
-  - `-t, --type <type>` Output type [default: hex]. Available types are: hex, srec, com (for CP/M), sna, tap (for ZX Spectrum), prg (for C64)
+  - `-t, --type <type>` Output type [default: hex]. Available types are: hex, srec, com (for CP/M), sna, tap (for ZX Spectrum), prg (for C64), bin (use directives .binfrom and .binto to specify memory range to export)
   - `-n, --nolist` Suppress listing (.lst file)
   - `-m, --machine <type>` Processor type, one of the following: Z80, I8080, C6502, C65816, CDP1802, M6800, M6809
   - `-h, --help` See HELP
@@ -40,7 +40,7 @@
 ## Format, directives etc.
 
   See [ASM80 GitBook](https://maly.gitbooks.io/asm80/content/) for further information.
-  
+
 ## Support me
 
   [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PZRPU5M94NLJA)
@@ -54,7 +54,7 @@
   or http://www.asm80.com for online IDE, based on this assembler
 
 ## Changes
-  
+
   - 1.0.4: Documentation moved to GitBooks
   - 1.0.3: Directives .pstr, .cstr and .istr added
   - 1.0.0: Typos fixed, all Codacy needs achieved etc.
