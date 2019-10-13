@@ -1,0 +1,5 @@
+; thanks to all my Patrons
+; see more at https://www.patreon.com/omenmicro
+
+db "DanTomanek",0dh
+db "KamilZ",0dh
