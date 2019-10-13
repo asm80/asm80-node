@@ -46,59 +46,78 @@ var path = require("path");
 var LFS = require("./lfsnode.js");
 var hextools = require("./hextools.js");
 
-var btoa = require('btoa');
-var atob = require('atob');
+var btoa = require("btoa");
+var atob = require("atob");
 
-var pjson = require('./package.json');
-var corejson = require('./core.json');
+var pjson = require("./package.json");
+var corejson = require("./core.json");
 //console.log(pjson.version);
 
-var program = require('commander');
+var program = require("commander");
 
-program.version(pjson.version+"-core"+corejson.version)
-  .usage('[options] <file>')
-  .option('-o, --output <file>', 'Output file name')
-  .option('-t, --type <type>', 'Output type [default: hex] - hex, srec, com (for CP/M), sna, tap (for ZX Spectrum), prg (for C64)')
-  .option('-n, --nolist', 'Suppress listing')
-  .option('-m, --machine <type>', 'Processor type (see below)')
-  .on('--help', function(){
-    console.log('  Machine types:');
-    console.log('');
+program
+  .version(pjson.version + "-core" + corejson.version)
+  .usage("[options] <file>")
+  .option("-o, --output <file>", "Output file name")
+  .option(
+    "-t, --type <type>",
+    "Output type [default: hex] - hex, srec, com (for CP/M), sna, tap (for ZX Spectrum), prg (for C64), bin"
+  )
+  .option("-n, --nolist", "Suppress listing")
+  .option("-m, --machine <type>", "Processor type (see below)")
+  .on("--help", function() {
+    console.log("  Machine types:");
+    console.log("");
     if (Monolith) {
       for (var i in Monolith) {
-        console.log("   - "+i);
+        console.log("   - " + i);
       }
     }
-    console.log('');
-    console.log('See https://maly.github.io/asm80-node/ for further docs');
+    console.log("");
+    console.log("See https://maly.github.io/asm80-node/ for further docs");
   })
   .parse(process.argv);
-
 
 if (!program.args.length) {
   program.help();
 }
 
 var asmType = function(fn) {
-  var type="unknown";
-  switch (path.extname(fn).toUpperCase()){
-    case '.A80': type = 'I8080'; break;
-    case '.A08': type = 'I8008'; break;
-    case '.A68': type = 'M6800'; break;
-    case '.A18': type = 'CDP1802'; break;
-    case '.A09': type = 'M6809'; break;
-    case '.A65': type = 'C6502'; break;
-    case '.816': type = 'C65816'; break;
-    case '.Z80': type = 'Z80'; break;
+  var type = "unknown";
+  switch (path.extname(fn).toUpperCase()) {
+    case ".A80":
+      type = "I8080";
+      break;
+    case ".A08":
+      type = "I8008";
+      break;
+    case ".A68":
+      type = "M6800";
+      break;
+    case ".A18":
+      type = "CDP1802";
+      break;
+    case ".A09":
+      type = "M6809";
+      break;
+    case ".A65":
+      type = "C6502";
+      break;
+    case ".816":
+      type = "C65816";
+      break;
+    case ".Z80":
+      type = "Z80";
+      break;
   }
   return type;
 };
 
-var fn = path.resolve(__cwd, program.args[program.args.length-1]);
+var fn = path.resolve(__cwd, program.args[program.args.length - 1]);
 
-var asmtype = (asmType(fn));
+var asmtype = asmType(fn);
 
-var data = LFS.load(program.args[program.args.length-1]);
+var data = LFS.load(program.args[program.args.length - 1]);
 
 if (program.machine) {
   asmtype = program.machine.toUpperCase();
@@ -110,61 +129,92 @@ var mpath = path.parse(fn);
 var root = mpath.dir;
 //console.log(mpath);
 
-ASM.fileGet(function(fn,binary){
-  var nfn = path.resolve(root,fn);
+ASM.fileGet(function(fn, binary) {
+  var nfn = path.resolve(root, fn);
   //console.log("Include", path.resolve(root,fn));
   return LFS.load(nfn, binary);
 });
 
 switch (asmtype) {
-  case 'I8080':	vxx = ASM.compile(data, Monolith.I8080); break;
-  case 'I8008': vxx = ASM.compile(data, Monolith.I8008); break;
-  case 'C6502':	vxx = ASM.compile(data, Monolith.C6502); break;
-  case 'C65816':	vxx = ASM.compile(data, Monolith.C65816); break;
-  case 'Z80':		vxx = ASM.compile(data, Monolith.Z80); break;
-  case 'M6800':	vxx = ASM.compile(data, Monolith.M6800); break;
-  case 'CDP1802':	vxx = ASM.compile(data, Monolith.CDP1802); break;
-  case 'M6809':
-  vxx = ASM.compile(data, Monolith.H6309);
+  case "I8080":
+    vxx = ASM.compile(data, Monolith.I8080);
+    break;
+  case "I8008":
+    vxx = ASM.compile(data, Monolith.I8008);
+    break;
+  case "C6502":
+    vxx = ASM.compile(data, Monolith.C6502);
+    break;
+  case "C65816":
+    vxx = ASM.compile(data, Monolith.C65816);
+    break;
+  case "Z80":
+    vxx = ASM.compile(data, Monolith.Z80);
+    break;
+  case "M6800":
+    vxx = ASM.compile(data, Monolith.M6800);
+    break;
+  case "CDP1802":
+    vxx = ASM.compile(data, Monolith.CDP1802);
+    break;
+  case "M6809":
+    vxx = ASM.compile(data, Monolith.H6309);
 
-  if (ASM.PRAGMAS.indexOf("6309")<0) {
-    vxx = ASM.compile(data, Monolith.M6809);
-  }
+    if (ASM.PRAGMAS.indexOf("6309") < 0) {
+      vxx = ASM.compile(data, Monolith.M6809);
+    }
 
-  break;
-  default: console.log("Unrecognized ASM type");
-  process.exit(-1);
+    break;
+  default:
+    console.log("Unrecognized ASM type");
+    process.exit(-1);
 }
 
 if (vxx[0]) {
   //error
   var err = vxx[0];
   if (err.msg) {
-    console.error("ERROR ",err.msg);
-    console.error("at line ",err.s.numline);
-    console.error(">>> ",err.s.line);
-  }
-  else console.log(vxx[0]);
+    console.error("ERROR ", err.msg);
+    console.error("at line ", err.s.numline);
+    console.error(">>> ", err.s.line);
+  } else console.log(vxx[0]);
   //+ "\n" + "Line: "+vxx[0].s.numline);
   process.exit(-1);
 }
 
-var otype = 'hex';
+var otype = "hex";
 if (program.type) {
   switch (program.type.toUpperCase()) {
-    case "SREC": otype="srec"; break;
-    case "HEX": otype="hex"; break;
-    case "PRG": otype="prg"; break;
-    case "COM": otype="com"; break;
-    case "SNA": otype="sna"; break;
-    case "TAP": otype="tap"; break;
-    default: console.log("Unknown output type"); process.exit(-1);
+    case "SREC":
+      otype = "srec";
+      break;
+    case "HEX":
+      otype = "hex";
+      break;
+    case "PRG":
+      otype = "prg";
+      break;
+    case "COM":
+      otype = "com";
+      break;
+    case "SNA":
+      otype = "sna";
+      break;
+    case "TAP":
+      otype = "tap";
+      break;
+    case "BIN":
+      otype = "bin";
+      break;
+    default:
+      console.log("Unknown output type");
+      process.exit(-1);
   }
 }
 
 var npath = path.parse(fn);
-npath.ext = "."+otype;
-delete(npath.base);
+npath.ext = "." + otype;
+delete npath.base;
 var vx = vxx[1];
 
 var outdata;
@@ -178,49 +228,77 @@ if (program.output) {
   npath.base = program.output;
 }
 
-if (ASM.PRAGMAS.indexOf("SEGMENT")>=0) {
-  LFS.save(path.format(npath),outdata);
+if (ASM.PRAGMAS.indexOf("SEGMENT") >= 0) {
+  LFS.save(path.format(npath), outdata);
   //FS.save(fileEdit+'.hex', hex)
-  var mseg = ASM.hex(vx[0],'DSEG');
-  npath.ext =".dseg.hex";
-  if (mseg.length>11) LFS.save(path.format(npath),mseg);
-  npath.ext =".eseg.hex";
-  mseg = ASM.hex(vx[0],'ESEG');
-  if (mseg.length>11) LFS.save(path.format(npath),mseg);
-  npath.ext =".hex";
+  var mseg = ASM.hex(vx[0], "DSEG");
+  npath.ext = ".dseg.hex";
+  if (mseg.length > 11) LFS.save(path.format(npath), mseg);
+  npath.ext = ".eseg.hex";
+  mseg = ASM.hex(vx[0], "ESEG");
+  if (mseg.length > 11) LFS.save(path.format(npath), mseg);
+  npath.ext = ".hex";
 }
 
 if (otype === "prg") {
-  if (asmtype!=="C6502") {console.log("Warning: PRG is for Commodore C64, it should be compiled for 6502 CPU");}
-  if (!ASM.ENT) {console.log("Please specify the entry point (use .ENT directive)");}
-  outdata = hextools.hex2prg(outdata,ASM.ENT);
+  if (asmtype !== "C6502") {
+    console.log(
+      "Warning: PRG is for Commodore C64, it should be compiled for 6502 CPU"
+    );
+  }
+  if (!ASM.ENT) {
+    console.log("Please specify the entry point (use .ENT directive)");
+  }
+  outdata = hextools.hex2prg(outdata, ASM.ENT);
 }
 
 if (otype === "com") {
-  if (asmtype!=="I8080" && asmtype !== "Z80") {console.log("Warning: COM is for CP/M, it should be compiled for 8080/Z80 CPU");}
-  outdata = hextools.hex2com(outdata,ASM.ENT);
+  if (asmtype !== "I8080" && asmtype !== "Z80") {
+    console.log(
+      "Warning: COM is for CP/M, it should be compiled for 8080/Z80 CPU"
+    );
+  }
+  outdata = hextools.hex2com(outdata, ASM.ENT);
 }
 
 if (otype === "sna") {
-  if (asmtype !== "Z80") {console.log("Warning: SNA is for ZX Spectrum, it should be compiled for Z80 CPU");}
-  outdata = hextools.makeSNA(vx[0],ASM.ENT);
+  if (asmtype !== "Z80") {
+    console.log(
+      "Warning: SNA is for ZX Spectrum, it should be compiled for Z80 CPU"
+    );
+  }
+  outdata = hextools.makeSNA(vx[0], ASM.ENT);
 }
 
 if (otype === "tap") {
-  if (asmtype !== "Z80") {console.log("Warning: TAP is for ZX Spectrum, it should be compiled for Z80 CPU");}
-  outdata = hextools.makeTAP(vx[0],ASM.ENT);
+  if (asmtype !== "Z80") {
+    console.log(
+      "Warning: TAP is for ZX Spectrum, it should be compiled for Z80 CPU"
+    );
+  }
+  outdata = hextools.makeTAP(vx[0], ASM.ENT);
 }
 
+if (otype === "bin") {
+  var hex = ASM.hex(vx[0]);
+
+  var mFrom = 0;
+  var mTo = 65535;
+
+  //console.log(ASM.BINTO);
+  if (ASM.BINFROM) mFrom = ASM.BINFROM;
+  if (ASM.BINTO) mTo = ASM.BINTO;
+  outdata = hextools.hex2bin(hex, mFrom, mTo);
+}
 
 //console.log(npath,path.format(npath));
 
-LFS.save(path.format(npath),outdata);
-
+LFS.save(path.format(npath), outdata);
 
 if (!program.nolist) {
   var lpath = path.parse(path.format(npath));
   lpath.ext = ".lst";
-  delete(lpath.base);
-  var lst = ASM.lst(vx[0],vx[1]);
-  LFS.save(path.format(lpath),lst);
+  delete lpath.base;
+  var lst = ASM.lst(vx[0], vx[1]);
+  LFS.save(path.format(lpath), lst);
 }
