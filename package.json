@@ -37,6 +37,6 @@
   "dependencies": {
     "atob": "^2.1.2",
     "btoa": "^1.2.1",
-    "commander": "^2.9.0"
+    "commander": "^2.20.3"
   }
 }
